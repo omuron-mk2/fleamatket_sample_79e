@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 6.0.0"
+lock '3.14.1'
 
 set :application, "fleamatket_sample_79e"
 set :repo_url, "git@github.com:masanorire0714/fleamatket_sample_79e.git"
