@@ -51,6 +51,6 @@ production:
   <<: *default
   database: fleamatket_sample_79e_production
   username: root
-  password: <%= ENV['FLEAMATKET_SAMPLE_79E_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
 
