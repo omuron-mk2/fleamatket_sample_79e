@@ -34,7 +34,7 @@
 | send_last_name_kana |string | null:false |
 | send_first_name_kana | string | null:false |
 | postal_code | integer | null:false |
-| prefecture | string | null:false |
+| prefecture_id(acitve_hash) | string | null:false |
 | city|string | null:false |
 | house_number | integer | null:false |
 | room_number | integer ||
