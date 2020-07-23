@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :address, dependent: :destroy
   # has_many :items, dependent: :destroy
   # has_many :cards, dependent: :destroy
-  # has_one :address, dependent: :destroy
 
   validates :nickname, presence: true
   validates :last_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
