@@ -34,8 +34,8 @@
 | send_last_name_kana |string | null:false |
 | send_first_name_kana | string | null:false |
 | postal_code | integer | null:false |
-| prefecture_id(acitve_hash) | string | null:false |
-| city|string | null:false |
+| prefecture_id(active_hash) | string | null:false |
+| city |string | null:false |
 | house_number | integer | null:false |
 | room_number | integer ||
 | user_id | integer | null:false, foreign_key: true |
@@ -56,7 +56,7 @@
 | category_id | integer | null:false, foreign_key: true|
 | brand_id | integer | foreign_key: true |
 | delivery_fee | integer | null:false |
-|prefecture_id(acitve_hash)|integer|null: false|
+| prefecture_id(active_hash) | integer |null: false|
 | days | string | null:false |
 | user_id | integer | null:false, foreign_key: true |
 
