@@ -38,6 +38,7 @@
 | city|string | null:false |
 | house_number | integer | null:false |
 | room_number | integer ||
+| user_id | integer | null:false, foreign_key: true |
 
 ### Association
 
@@ -72,6 +73,7 @@
 | Column   | Type   | Options    |
 | -------- | ------ | ---------- |
 | image | string | null:false |
+| item_id | integer | null:false, foreign_key: true |
 
 ### Association
 
