@@ -23,16 +23,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_013642) do
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
-    t.string "send_last_name", null: false
-    t.string "send_first_name", null: false
-    t.string "send_last_name_kana", null: false
-    t.string "send_first_name_kana", null: false
-    t.integer "postal_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.integer "house_number", null: false
-    t.integer "room_number"
-    t.integer "tel_number", null: false
+    t.string "tel_number", null: false
     t.text "profile_text"
     t.string "profile_image"
     t.string "reset_password_token"
