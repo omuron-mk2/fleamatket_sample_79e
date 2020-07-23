@@ -20,9 +20,9 @@
 
 ### Association
 
-- has_many :items
-- has_many :cards
-- has_one :address
+- has_many :items, dependent: :destroy
+- has_many :cards, dependent: :destroy
+- has_one :address, dependent: :destroy
 
 
 ## addresses テーブル
@@ -42,7 +42,6 @@
 ### Association
 
 - belongs_to :user
-- dependent: :destroy
 
 
 ## items テーブル
@@ -65,11 +64,11 @@
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- has_many :images
-- dependent: :destroy
+- has_many :images, dependent: :destroy
 
 
 ## images テーブル
+
 | Column   | Type   | Options    |
 | -------- | ------ | ---------- |
 | image | string | null:false |
@@ -77,7 +76,6 @@
 ### Association
 
 - belongs_to :item
-- dependent: :destroy
 
 
 ## categories テーブル
@@ -115,5 +113,3 @@
 ### Association
 
 - belongs_to :user
-- dependent: :destroy
-
