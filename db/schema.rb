@@ -35,6 +35,22 @@ ActiveRecord::Schema.define(version: 2020_07_24_084803) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "send_last_name", null: false
+    t.string "send_first_name", null: false
+    t.string "send_last_name_kana", null: false
+    t.string "send_first_name_kana", null: false
+    t.integer "postal_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.integer "house_number", null: false
+    t.integer "room_number"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "text", null: false
@@ -62,16 +78,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_084803) do
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
-    t.string "send_last_name", null: false
-    t.string "send_first_name", null: false
-    t.string "send_last_name_kana", null: false
-    t.string "send_first_name_kana", null: false
-    t.integer "postal_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.integer "house_number", null: false
-    t.integer "room_number"
-    t.integer "tel_number", null: false
+    t.string "tel_number"
     t.text "profile_text"
     t.string "profile_image"
     t.string "reset_password_token"
@@ -87,4 +94,5 @@ ActiveRecord::Schema.define(version: 2020_07_24_084803) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "users"
+  add_foreign_key "addresses", "users"
 end
