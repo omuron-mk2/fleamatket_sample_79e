@@ -3,15 +3,15 @@ require 'rails_helper'
 describe User do
   describe '#create' do
    
-    it "nameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
+    it "nicknameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
       user = build(:user)
       expect(user).to be_valid
     end
 
-    it "nameがない場合は登録できないこと" do
-      user = build(:user, name: "" )
+    it "nicknameがない場合は登録できないこと" do
+      user = build(:user, nickname: "" )
       user.valid?
-      expect(user.errors[:name]).to include("を入力してください")
+      expect(user.errors[:nickname]).to include("を入力してください")
     end
 
     it "emailがない場合は登録できないこと" do
@@ -23,7 +23,7 @@ describe User do
     it "passwordがない場合は登録できないこと" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("を入力してください", "は7文字以上で入力してください", "は不正な値です")
+      expect(user.errors[:password]).to include("を入力してください")
     end
 
     it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
@@ -53,16 +53,59 @@ describe User do
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
    
-    it " passwordが7文字以上であれば登録できること " do
-      user = build(:user, password: "password", password_confirmation: "password")
+    it "passwordが7文字以上であれば登録できること" do
+      user = build(:user, password: "0000000", password_confirmation: "0000000")
       user.valid?
       expect(user).to be_valid
     end
 
-    it " passwordが6文字以下であれば登録できないこと " do
-      user = build(:user, password: "password", password_confirmation: "password")
+    it "passwordが6文字以下であれば登録できないこと" do
+      user = build(:user, password: "000000", password_confirmation: "password")
       user.valid?
       expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
+
+    it "first_nameがない場合は登録できないこと" do
+      user = build(:user, first_name: nil)
+      user.valid?
+      expect(user.errors[:first_name]).to include("を入力してください")
+    end
+
+    it "last_nameがない場合は登録できないこと" do
+      user = build(:user, last_name: nil)
+      user.valid?
+      expect(user.errors[:last_name]).to include("を入力してください")
+    end
+
+    it "first_name_kanaがない場合は登録できないこと" do
+      user = build(:user, first_name_kana: nil)
+      user.valid?
+      expect(user.errors[:first_name_kana]).to include("を入力してください")
+    end
+
+    it "last_name_kanaがない場合は登録できないこと" do
+      user = build(:user, last_name_kana: nil)
+      user.valid?
+      expect(user.errors[:last_name_kana]).to include("を入力してください")
+    end
+
+    it "birth_yearがない場合は登録できないこと" do
+      user = build(:user, birth_year: nil)
+      user.valid?
+      expect(user.errors[:birth_year]).to include("を入力してください")
+    end
+
+    it "birth_monthがない場合は登録できないこと" do
+      user = build(:user, birth_month: nil)
+      user.valid?
+      expect(user.errors[:birth_month]).to include("を入力してください")
+    end
+
+    it "birth_dayがない場合は登録できないこと" do
+      user = build(:user, birth_day: nil)
+      user.valid?
+      expect(user.errors[:birth_day]).to include("を入力してください")
+    end
+    
   end
 end
