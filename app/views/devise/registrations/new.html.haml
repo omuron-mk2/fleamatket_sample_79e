@@ -1,6 +1,5 @@
 .HeaderUsers
   .HeaderUsers__logo
-    -# %a{ :href => '/' }
     = link_to image_tag src="/assets/logo_users.png", size: "180x70"
 
 .AccountPage
@@ -78,89 +77,6 @@
           .FormField__input--birth
             = f.text_field :birth_day, autofocus: true, autocomplete: "birth_day"
           %span 日
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :send_last_name, "送付先氏名"
-      -#     %span (全角)
-      -#     %h4 必須
-      -#   .FormField__input
-      -#     .FormField__input--half
-      -#       = f.text_field :send_last_name, placeholder: "名字", autofocus: true, autocomplete: "send_last_name"
-      -#     .FormField__input--half
-      -#       = f.text_field :send_first_name, placeholder: "名前", autofocus: true, autocomplete: "send_first_name"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :send_last_name_kana, "送付先氏名カナ"
-      -#     %span (全角)
-      -#     %h4 必須
-      -#   .FormField__input
-      -#     .FormField__input--half
-      -#       = f.text_field :send_last_name_kana, placeholder: "ミョウジ", autofocus: true, autocomplete: "send_last_name_kana"
-      -#     .FormField__input--half
-      -#       = f.text_field :send_first_name_kana, placeholder: "ナマエ", autofocus: true, autocomplete: "send_first_name_kana"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :postal_code, "郵便番号"
-      -#     %span (半角数字)
-      -#     %h4 必須
-      -#   .FormField__input--normal
-      -#     = f.text_field :postal_code, placeholder: "郵便番号", autocomplete: "postal_code"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :prefecture, "都道府県"
-      -#     %span (全角)
-      -#     %h4 必須
-      -#   .FormField__input--normal
-      -#     = f.text_field :prefecture, placeholder: "都道府県", autocomplete: "prefecture"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :city, "市区町村"
-      -#     %span (全角)
-      -#     %h4 必須
-      -#   .FormField__input--normal
-      -#     = f.text_field :city, placeholder: "市区町村", autocomplete: "city"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :house_number, "番地"
-      -#     %span (全角)
-      -#     %h4 必須
-      -#   .FormField__input--normal
-      -#     = f.text_field :house_number, placeholder: "番地", autocomplete: "house_number"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :room_number, "マンション、アパート名"
-      -#     %span (全角)
-      -#     %h5 任意
-      -#   .FormField__input--normal
-      -#     = f.text_field :room_number, placeholder: "マンション名、部屋番号", autocomplete: "room_number"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :tel_number, "電話番号"
-      -#     %span (半角数字)
-      -#     %h5 任意
-      -#   .FormField__input--normal
-      -#     = f.text_field :tel_number, placeholder: "電話番号", autocomplete: "tel_number"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :profile_text, "プロフィール文章"
-      -#     %h5 任意
-      -#   .FormField__input--normal
-      -#     = f.text_field :profile_text, placeholder: "自己紹介など", autocomplete: "profile_text"
-
-      -# .FormField
-      -#   .FormField__label
-      -#     = f.label :profile_image, "プロフィール画像"
-      -#     %h5 任意
-      -#     = f.file_field :profile_image, class: "label"
 
       .actions
         = f.submit "アカウント作成"
