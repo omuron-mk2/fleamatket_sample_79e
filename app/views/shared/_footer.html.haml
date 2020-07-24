@@ -1,0 +1,37 @@
+.footer
+  .footer-main
+    .footer-content
+      .footer-content__title
+        FULIMAについて
+        / リンク先はあとから変える
+      = link_to user_session_path, class: "footer-content__content" do
+        会社概要
+      = link_to user_session_path, class: "footer-content__content" do
+        パライバシーポリシー
+      = link_to user_session_path, class: "footer-content__content" do
+        FULIMA利用規約
+      = link_to user_session_path, class: "footer-content__content" do
+        ポイントに関する特約
+    .footer-watch
+      .footer-watch__title
+        FURIMAを見る
+      = link_to user_session_path, class: "footer-watch__content" do
+        カテゴリー一覧
+      = link_to user_session_path, class: "footer-watch__content" do
+        ブランド一覧
+    .footer-help
+      .footer-help__title
+        ヘルプ&ガイド
+      = link_to user_session_path, class: "footer-help__content" do
+        FULIMAガイド
+      = link_to user_session_path, class: "footer-help__content" do
+        FURIMAロゴ利用ガイド
+      = link_to user_session_path, class: "footer-help__content" do
+        お知らせ
+  .footer-logo
+    %a{ :href => '/' }
+      = link_to image_tag "logo-white.png", size: "150x40"
+  .copyright-mark
+    .copyright-mark__mark
+      © FURIMA
+      

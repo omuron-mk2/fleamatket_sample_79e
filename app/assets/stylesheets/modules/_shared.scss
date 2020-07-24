@@ -1,0 +1,170 @@
+.header{
+  
+  height: 100px;
+  width: 100%;
+}
+
+.header-content{
+  padding: 15px 0 0 ;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.main-header{
+  display: flex;
+  align-items: center;
+  
+}
+
+.main-header{
+  
+}
+
+.iconmain{
+  height: 100px;
+  width: 150px;
+}
+
+.input-box__image{
+  
+  height: 20px;
+  
+}
+
+.search-box{
+  padding: 0 0 0 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.class-serch__text{
+  height: 30px;
+  width: 98%;
+}
+
+.search-submit{
+  height: 36px;
+  background-color: #63dcdc;
+  display: flex;
+  width: 36px;
+  align-items: center;
+  justify-content: center;
+    input{
+      display: none;  
+    }   
+}
+
+.header-nav{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.left-list{
+  display: flex;
+  &__category{
+    padding: 0 38px 0 0 ;
+    font-size: 13px;
+  }
+  &__brand{
+    list-style: none;
+    font-size: 13px;
+  }
+}
+
+.right-list{
+  display: flex;
+  &__login{
+    padding: 0 38px 0 0 ;
+    font-size: 12px;
+    list-style: none;
+  }
+  &__singup{
+    font-size: 13px;
+    text-decoration: none;
+  }
+}
+
+.singup-content{
+  text-decoration: none;
+  color: black;
+}
+
+.footer{
+  background-color: black;
+}
+
+.footer-content{
+  color: white;
+  text-align: center;
+  
+  &__content{
+    color: white;
+    font-size: 12px;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+  }
+  &__title{
+    margin: 0 0 20px 0;
+    font-weight: bold;
+  }
+}
+
+.footer-watch{
+  color: white;
+  text-align: center;
+  &__content{
+    color: white;
+    font-size: 12px;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+  }
+  &__title{
+    margin: 0 0 20px 0;
+    font-weight: bold;
+  }
+}
+
+.footer-help{
+  color: white;
+  text-align: center;
+  &__content{
+    color: white;
+    font-size: 12px;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+  }
+  &__title{
+    margin: 0 0 20px 0;
+    font-weight: bold;
+  }
+}
+
+.footer-main{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 400px;
+}
+
+.footer{
+  padding-top: 60px;
+}
+
+.footer-logo{
+  display: flex;
+  justify-content: center;
+}
+
+.copyright-mark{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+  &__mark{
+    color: white;
+  }
+}
