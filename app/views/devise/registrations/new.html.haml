@@ -1,22 +1,82 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.HeaderUsers
+  .HeaderUsers__logo
+    = link_to image_tag src="/assets/logo_users.png", size: "180x70"
 
+.AccountPage
+  .AccountPage__title
+    Sign up
+  .AccountPage__have
+    アカウントを既に持っている方は
+    = render "devise/shared/links"
+  .AccountPage__form
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+
+      .FormField
+        .FormField__label
+          = f.label :nickname, "ニックネーム"
+          %h4 必須
+        .FormField__input--normal
+          = f.text_field :nickname, placeholder: "ニックネーム", autofocus: true, autocomplete: "nickname"
+
+      .FormField
+        .FormField__label
+          = f.label :email
+          %h4 必須
+        .FormField__input--normal
+          = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email"
+
+      .FormField
+        .FormField__label
+          = f.label :password
+          %h4 必須
+        .FormField__input--normal
+          = f.password_field :password, placeholder: "Password(英数字7文字以上)", autocomplete: "new-password"
+
+      .FormField
+        .FormField__label
+          = f.label :password_confirmation, "確認用Password"
+          %h4 必須
+        .FormField__input--normal
+          = f.password_field :password_confirmation, placeholder: "Password(英数字7文字以上)", autocomplete: "new-password"
+
+      .FormField
+        .FormField__label
+          = f.label :last_name, "氏名"
+          %span (全角)
+          %h4 必須
+        .FormField__input
+          .FormField__input--half
+            = f.text_field :last_name, placeholder: "名字", autofocus: true, autocomplete: "last_name"
+          .FormField__input--half
+            = f.text_field :first_name, placeholder: "名前", autofocus: true, autocomplete: "first_name"
+
+      .FormField
+        .FormField__label
+          = f.label :last_name_kana, "氏名カナ"
+          %span (全角)
+          %h4 必須
+        .FormField__input
+          .FormField__input--half
+            = f.text_field :last_name_kana, placeholder: "ミョウジ", autofocus: true, autocomplete: "last_name_kana"
+          .FormField__input--half
+            = f.text_field :first_name_kana, placeholder: "ナマエ", autofocus: true, autocomplete: "first_name_kana"
+
+      .FormField
+        .FormField__label
+          = f.label :birth_year,"生年月日"
+          %h4 必須
+          %br
+        .FormField__input
+          .FormField__input--birth
+            = f.text_field :birth_year, autofocus: true, autocomplete: "birth_year"
+          %span 年
+          .FormField__input--birth
+            = f.text_field :birth_month, autofocus: true, autocomplete: "birth_month"
+          %span 月
+          .FormField__input--birth
+            = f.text_field :birth_day, autofocus: true, autocomplete: "birth_day"
+          %span 日
+
+      .actions
+        = f.submit "アカウント作成"
