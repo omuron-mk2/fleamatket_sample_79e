@@ -2,8 +2,7 @@
   .header-content
     .main-header
       .header-icon
-        %a{ :href => '/' }
-          = link_to image_tag "logo.png", size: "150x40"
+        = link_to image_tag("logo.png", size: "150x40"), root_path
       .search-box
         %input.class-serch__text{tpe: "text",  placeholder: "キーワードから探す"}
         .search-submit
