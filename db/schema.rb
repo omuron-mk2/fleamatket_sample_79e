@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_125411) do
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
-    t.string "tel_number", null: false
+    t.string "tel_number"
     t.text "profile_text"
     t.string "profile_image"
     t.string "reset_password_token"
