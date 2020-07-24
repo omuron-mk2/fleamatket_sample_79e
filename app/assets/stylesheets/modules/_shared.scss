@@ -72,6 +72,10 @@
 
 .right-list{
   display: flex;
+  &__mypage{
+    font-size: 13px;
+    margin-right: 35px;
+  }
   &__login{
     padding: 0 38px 0 0 ;
     font-size: 12px;
