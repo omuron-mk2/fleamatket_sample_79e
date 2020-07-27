@@ -71,3 +71,8 @@ gem 'devise'
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem 'active_hash'
 gem 'ancestry'
+
+gem 'payjp'
+gem 'dotenv-rails'
+
+gem "jquery-rails"
