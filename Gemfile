@@ -73,3 +73,7 @@ gem 'font-awesome-sass'
 gem 'active_hash'
 gem 'ancestry'
 
+gem 'payjp'
+gem 'dotenv-rails'
+
+gem "jquery-rails"
