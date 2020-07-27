@@ -1,0 +1,29 @@
+.header
+  .header-content
+    .main-header
+      .header-icon
+        = link_to image_tag("logo.png", size: "150x40"), root_path
+      .search-box
+        %input.class-serch__text{tpe: "text",  placeholder: "キーワードから探す"}
+        .search-submit
+          %label{class: "input-box__image"}
+            = link_to image_tag "icon-search 1.png", size: "20x20"
+            %input.class-name__submit{type: "submit" ,value: "POST"}
+    .header-nav
+      .left-list
+        .left-list__category
+          カテゴリー
+        .left-list__brand
+          ブランド
+      .right-list
+        - if user_signed_in?
+          .right-list__mypage
+            = link_to "#", class:"singup-content" do
+              マイページ
+        - else
+          .right-list__login
+            = link_to user_session_path, class:"singup-content" do
+              ログイン
+          .right-list__singup
+            = link_to new_user_registration_path, class:"singup-content" do
+              新規会員登録
