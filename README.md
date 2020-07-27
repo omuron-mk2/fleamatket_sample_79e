@@ -58,7 +58,8 @@
 | delivery_fee | integer | null:false |
 | prefecture_id(active_hash) | integer |null: false|
 | days | string | null:false |
-| user_id | integer | null:false, foreign_key: true |
+| seller_id | integer | null:false, foreign_key: true |
+| buyer_id | integer | null:false, foreign_key: true |
 
 ### Association
 
