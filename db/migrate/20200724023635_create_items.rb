@@ -5,14 +5,14 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text :text,                   null: false
       t.string :price,                null: false
       t.string :condition,            null: false
-      t.integer :delivery_fee,        null: false
+      t.string :delivery_fee,         null: false
       t.integer :prefecture_id,       null: false
       t.string :days,                 null: false
-
-      # t.references :user, type: :bigint,         foreign_key: true
-      t.bigint :user_id
+      t.string :status,               null: false
+      
+      t.integer :buyer_id,                 foreign_key: true
+      t.integer :seller_id,  null: false,  foreign_key: true
       t.timestamps
     end
-    add_foreign_key :items, :users
   end
 end
