@@ -13,7 +13,7 @@
 | first_name_kana | string | null:false |
 | birth_year | integer | null:false |
 | birth_month | integer | null:false |
-| birth_day | integer | null:false |
+| birth_day | date | null:false |
 | tel_number | string ||
 | profile_text | text ||
 | profile_image | string ||
@@ -38,7 +38,7 @@
 | city |string | null:false |
 | house_number | integer | null:false |
 | room_number | integer ||
-| user_id | integer | null:false, foreign_key: true |
+| user | references | null:false, foreign_key: true |
 
 ### Association
 
@@ -53,8 +53,8 @@
 | text | text | null:false |
 | price | string | null:false |
 | condition | string | null:false |
-| category_id | integer | null:false, foreign_key: true|
-| brand_id | integer | foreign_key: true |
+| category | references | null:false, foreign_key: true|
+| brand | references | foreign_key: true |
 | delivery_fee | integer | null:false |
 | prefecture_id(active_hash) | integer |null: false|
 | days | string | null:false |
@@ -74,7 +74,7 @@
 | Column   | Type   | Options    |
 | -------- | ------ | ---------- |
 | image | string | null:false |
-| item_id | integer | null:false, foreign_key: true |
+| item | references | null:false, foreign_key: true |
 
 ### Association
 
@@ -109,7 +109,7 @@
 
 | Column   | Type   | Options    |
 | -------- | ------ | ---------- |
-| user_id | integer | null:false, foreign_key: true |
+| user | references | null:false, foreign_key: true |
 | card_number | integer | null:false |
 | customer_id | integer |  |
 
