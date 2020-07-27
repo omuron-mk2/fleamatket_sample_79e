@@ -3,7 +3,6 @@ $(function(){
   Payjp.setPublicKey("pk_test_c45b8051ee7b985365246a2f");
   $("#card_token").on("click",function(e){
     e.preventDefault();
-    console.log("hoge");
 
     var card = {
       number: $("#card_number").val(),
