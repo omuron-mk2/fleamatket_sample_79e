@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_101912) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "card_id", null: false
+    t.string "card_number", null: false
     t.string "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -63,15 +63,15 @@ ActiveRecord::Schema.define(version: 2020_07_24_101912) do
     t.text "text", null: false
     t.string "price", null: false
     t.string "condition", null: false
-    t.integer "delivery_fee", null: false
+    t.string "delivery_fee", null: false
     t.integer "prefecture_id", null: false
     t.string "days", null: false
-    t.bigint "user_id"
+    t.integer "buyer_id"
+    t.integer "seller_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
-    t.index ["user_id"], name: "fk_rails_d4b6334db2"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_101912) do
     t.string "first_name_kana", null: false
     t.integer "birth_year", null: false
     t.integer "birth_month", null: false
-    t.integer "birth_day", null: false
+    t.date "birth_day", null: false
     t.string "tel_number"
     t.text "profile_text"
     t.string "profile_image"
@@ -101,5 +101,4 @@ ActiveRecord::Schema.define(version: 2020_07_24_101912) do
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
-  add_foreign_key "items", "users"
 end
