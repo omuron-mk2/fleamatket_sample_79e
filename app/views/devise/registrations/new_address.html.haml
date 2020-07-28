@@ -1,0 +1,83 @@
+.HeaderUsers
+  .HeaderUsers__logo
+    = link_to image_tag src="/assets/logo_users.png", size: "180x50"
+
+.AccountPage
+  .AccountPage__title
+    Sign up
+  %h2 ＜送り先情報登録＞
+
+  .AccountPage__form
+    = form_for @address do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .FormField
+        .FormField__label
+          = f.label :last_name, "送り先氏名"
+          %span (全角)
+          %h4 必須
+        .FormField__input
+          .FormField__input--half
+            = f.text_field :send_last_name, placeholder: "名字", autofocus: true, autocomplete: "send_last_name"
+          .FormField__input--half
+            = f.text_field :send_first_name, placeholder: "名前", autofocus: true, autocomplete: "send_first_name"
+
+      .FormField
+        .FormField__label
+          = f.label :last_name_kana, "送り先氏名カナ"
+          %span (全角カタカナ)
+          %h4 必須
+        .FormField__input
+          .FormField__input--half
+            = f.text_field :send_last_name_kana, placeholder: "ミョウジ", autofocus: true, autocomplete: "send_last_name_kana"
+          .FormField__input--half
+            = f.text_field :send_first_name_kana, placeholder: "ナマエ", autofocus: true, autocomplete: "send_first_name_kana"
+
+      .FormField
+        .FormField__label
+          = f.label "郵便番号"
+          %span (半角数字、ハイフンなし)
+          %h4 必須
+        .FormField__input
+          .FormField__input--post
+            %span 〒
+            = f.text_field :postal_code, autofocus: true, autocomplete: "postal_code"
+
+      .FormField
+        .FormField__label
+          = f.label "都道府県"
+          %h4 必須
+        .FormField__input
+          .FormField__input--normal
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+
+      .FormField
+        .FormField__label
+          = f.label "市町村"
+          %span (全角)
+          %h4 必須
+        .FormField__input
+          .FormField__input--normal
+            = f.text_field :city, autofocus: true, autocomplete: "city"
+
+      .FormField
+        .FormField__label
+          = f.label "番地"
+          %h4 必須
+        .FormField__input
+          .FormField__input--normal
+            = f.text_field :house_number, autofocus: true, autocomplete: "house_number"
+ 
+      .FormField
+        .FormField__label
+          = f.label "部屋番号"
+        .FormField__input
+          .FormField__input--normal
+            = f.text_field :room_number, autofocus: true, autocomplete: "room_number"
+      
+      .actions
+        = f.submit "アカウント作成"
+
+
+  .AccountPage__have
+    アカウントを既に持っている方は
+    = render "devise/shared/links"
