@@ -27,7 +27,7 @@
     font-size: 36px;
     font-family: 'arial black';
     color: skyblue;
-    margin-top: 20px;
+    margin: 20px;
   }
   &__have{
     font-size: 12px;
@@ -60,7 +60,8 @@
       &__input{
         display: flex;
         &--normal{
-          input{
+          input, select{
+            height: 28px;
             width: 300px;
           }
         }
@@ -73,6 +74,11 @@
         &--birth{
           input{
             width: 80px;
+          }
+        }
+        &--post{
+          input{
+            width: 275px;
           }
         }
       }
@@ -92,4 +98,8 @@
       }
     }
   }
+}
+
+.Create_address{
+  margin-left: 200px;
 }
