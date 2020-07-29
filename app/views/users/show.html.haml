@@ -1,2 +1,48 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+.Mypage_wrapper
+  .Side_bar
+    %h3.Side_bar__Head 設定
+    %ul.Side_bar__List
+      %li
+        = link_to "#", class: "Mypage-nav-list__Item" do
+          プロフィール
+          %i.fas.fa-chevron-right
+        = link_to "#", class: "Mypage-nav-list__Item" do
+          発送元・お届け先住所変更
+          %i.fas.fa-chevron-right
+        = link_to "#", class: "Mypage-nav-list__Item" do
+          お支払い方法
+          %i.fas.fa-chevron-right
+        = link_to "#", class: "Mypage-nav-list__Item" do
+          メール/パスワード
+          %i.fas.fa-chevron-right
+        = link_to "#", class: "Mypage-nav-list__Item" do
+          本人情報
+          %i.fas.fa-chevron-right
+        = link_to "#", class: "Mypage-nav-list__Item" do
+          電話番号の確認
+          %i.fas.fa-chevron-right
+        = link_to "#", class: "Mypage-nav-list__Item" do
+          ログアウト
+          %i.fas.fa-chevron-right
+  .Main
+    .User_info
+      = link_to image_tag("no-profile-image.jpg", class: "User_info__Image"), user_path(current_user.id)
+      .User_info__Center
+        .User_info__Center__Name
+          ユーザー名
+        .User_info__Center__Number
+          出品数 13
+      .User_info__Text
+        プロフィール文 XXXXXXXXXXXXXXXXXXXXXXXX
+        %br
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    .User_items
+      .User_items__Title
+        出品した商品
+      .User_items__Boxes
+        .User_items__Boxes__Box.Choosing
+          取引中
+        .User_items__Boxes__Box.Non_choosing
+          過去の取引
+      .User_items__Contents
+        商品がありません
