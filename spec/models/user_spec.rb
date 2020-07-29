@@ -89,24 +89,6 @@ describe User do
       expect(user.errors[:last_name_kana]).to include("を入力してください")
     end
 
-    it "birth_yearがない場合は登録できないこと" do
-      user = build(:user, birth_year: nil)
-      user.valid?
-      expect(user.errors[:birth_year]).to include("を入力してください")
-    end
-
-    it "birth_monthがない場合は登録できないこと" do
-      user = build(:user, birth_month: nil)
-      user.valid?
-      expect(user.errors[:birth_month]).to include("を入力してください")
-    end
-
-    it "birth_dayがない場合は登録できないこと" do
-      user = build(:user, birth_day: nil)
-      user.valid?
-      expect(user.errors[:birth_day]).to include("を入力してください")
-    end
-    
     it "tel_numberがなくても登録できること" do
       user = build(:user, tel_number: nil)
       expect(user).to be_valid

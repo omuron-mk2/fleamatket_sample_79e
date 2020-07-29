@@ -65,19 +65,10 @@
 
       .FormField
         .FormField__label
-          = f.label :birth_year,"生年月日"
+          = f.label :birth_date, "生年月日"
           %h4 必須
-          %br
-        .FormField__input
-          .FormField__input--birth
-            = f.text_field :birth_year, autofocus: true, autocomplete: "birth_year"
-          %span 年
-          .FormField__input--birth
-            = f.text_field :birth_month, autofocus: true, autocomplete: "birth_month"
-          %span 月
-          .FormField__input--birth
-            = f.text_field :birth_day, autofocus: true, autocomplete: "birth_day"
-          %span 日
+        .FormField__input--birth
+          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, start_year: 1920, end_year: (Time.now.year - 5), default: Date.new(1990, 1, 1), date_separator: '%s'), '年', '月') + '日'
 
       .FormField
         .FormField__label
