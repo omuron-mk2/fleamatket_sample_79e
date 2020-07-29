@@ -19,7 +19,7 @@
   width: 40vw;
   height: 100%;
   padding-bottom: 30px;
-  margin: 0 auto 0;
+  margin: 0 auto 100px;
   border-radius: 4px;
   border: 1px #ddd solid;
   background-color: #f6f7f8;
@@ -27,7 +27,7 @@
     font-size: 36px;
     font-family: 'arial black';
     color: skyblue;
-    margin-top: 20px;
+    margin: 20px;
   }
   &__have{
     font-size: 12px;
@@ -60,7 +60,8 @@
       &__input{
         display: flex;
         &--normal{
-          input{
+          input, select{
+            height: 28px;
             width: 300px;
           }
         }
@@ -73,6 +74,11 @@
         &--birth{
           input{
             width: 80px;
+          }
+        }
+        &--post{
+          input{
+            width: 274px;
           }
         }
       }
@@ -92,4 +98,10 @@
       }
     }
   }
+}
+
+.Create_address{
+  margin: 50px;
+  text-align: center;
+  line-height: 50px;
 }
