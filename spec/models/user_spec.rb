@@ -107,5 +107,10 @@ describe User do
       expect(user.errors[:birth_day]).to include("を入力してください")
     end
     
+    it "tel_numberがなくても登録できること" do
+      user = build(:user, tel_number: nil)
+      expect(user).to be_valid
+    end
+
   end
 end
