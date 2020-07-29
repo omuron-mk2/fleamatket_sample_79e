@@ -38,8 +38,9 @@
     }
   }
   &__form{
+    font-size: 14px;
     .FormField{
-      margin-top: 30px;
+      margin-top: 25px;
       &__label{
         color: black;
         h4 {
@@ -61,23 +62,25 @@
         display: flex;
         &--normal{
           input, select{
-            height: 28px;
+            height: 30px;
             width: 300px;
           }
         }
         &--half{
           input{
+            height: 30px;
             width: 140px;
             margin-right: 15px;
           }
         }
         &--birth{
-          input{
-            width: 80px;
+          input, select{
+            height: 30px;
           }
         }
         &--post{
           input{
+            height: 30px;
             width: 274px;
           }
         }
