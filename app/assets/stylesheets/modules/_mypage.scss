@@ -1,0 +1,101 @@
+.Mypage_wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f8f8f8;
+  padding: 40px 200px;
+  display: flex;
+  .Side_bar{
+    margin-right: 40px;
+    &__Head{
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .Mypage-nav-list__Item{
+      height: 48px;
+      width: 280px;
+      font-size: 14px;
+      line-height: 16px;
+      color: #333333;
+      background-color: white;
+      text-decoration: none;
+      display: block;
+      padding: 16px;
+      border-bottom: solid 0.5px #EAEAEA;
+      display: flex;
+      justify-content: space-between;
+      .fa-chevron-right{
+        color: #C4C4C4;
+      }
+    }
+  }
+  .Main{
+    height: 100%;
+    width: 100%;
+    .User_info{
+      height: 160px;
+      width: 100%;
+      background-color: white;
+      padding: 30px 50px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      &__Image{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 30px;
+      }
+      &__Center{
+        margin: auto;
+        &__Name{
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        &__Number{
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+      &__Text{
+        font-size: 14px;
+        margin: auto;
+      }
+    }
+    .User_items{
+      width: 100%;
+      background-color: white;
+      &__Title{
+        height: 65px;
+        width: 100%;
+        color: #333333;
+        font-weight: bold;
+        padding: 20px;
+      }
+      &__Boxes{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        &__Box{
+          height: 65px;
+          width: 50%;
+          color: #333333;
+          font-weight: bold;
+          text-align: center;
+          padding: 20px;
+        }
+        .Choosing{
+          border-top: solid 2px #00cccc;
+        }
+        .Non_choosing{
+          background-color: #EAEAEA;
+        }
+      }
+      &__Contents{
+        color: #C4C4C4;
+        text-align: center;
+        padding: 40px;
+      }
+    }
+  }
+}
