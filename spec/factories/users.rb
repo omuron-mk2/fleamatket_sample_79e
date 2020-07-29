@@ -9,9 +9,8 @@ FactoryBot.define do
     first_name            {"花子"}
     last_name_kana        {"ヤマダ"}
     first_name_kana       {"ハナコ"}
-    birth_year            {"2000"}
-    birth_month           {"1"}
-    birth_day             {"1"}
+    birth_date            {"2000-01-01"}
+    tel_number            {"11111111111"}
   end
 
 end

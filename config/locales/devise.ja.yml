@@ -33,8 +33,18 @@ ja:
         birth_year: 生まれた年
         birth_month: 誕生月
         birth_day: 誕生日
+      address:
+        send_last_name: 送り先氏名の名字
+        send_first_name: 送り先氏名の名前
+        send_last_name_kana: 送り先氏名の名字（カナ）
+        send_first_name_kana: 送り先氏名の名前（カナ）
+        postal_code: 郵便番号
+        city: 市町村
+        house_number: 番地
+        room_number: 部屋番号
     models:
-      user: ユーザ
+      user: ユーザー
+      address: 送り先情報
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -146,5 +156,5 @@ ja:
       not_found: は見つかりませんでした。
       not_locked: は凍結されていません。
       not_saved:
-        one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        one: エラーが発生したため、%{resource}は保存されませんでした。
+        other: "%{count}件のエラーが発生したため、%{resource}は保存されませんでした。"

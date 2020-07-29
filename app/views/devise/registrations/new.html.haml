@@ -1,16 +1,15 @@
 .HeaderUsers
   .HeaderUsers__logo
-    = link_to image_tag src="/assets/logo_users.png", size: "180x70"
+    = link_to image_tag("/assets/logo_users.png", size: "180x50"), root_path
 
 .AccountPage
   .AccountPage__title
-    Sign up
-  .AccountPage__have
-    アカウントを既に持っている方は
-    = render "devise/shared/links"
+    Sign up    
+  %h2 ＜ユーザー情報登録＞
+
   .AccountPage__form
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
 
       .FormField
         .FormField__label
@@ -29,16 +28,18 @@
       .FormField
         .FormField__label
           = f.label :password
+          %span (半角英数字7文字以上)
           %h4 必須
         .FormField__input--normal
-          = f.password_field :password, placeholder: "Password(英数字7文字以上)", autocomplete: "new-password"
+          = f.password_field :password, placeholder: "Password", autocomplete: "new-password"
 
       .FormField
         .FormField__label
-          = f.label :password_confirmation, "確認用Password"
+          = f.label :password_confirmation, "確認用パスワード"
+          %span (半角英数字7文字以上)
           %h4 必須
         .FormField__input--normal
-          = f.password_field :password_confirmation, placeholder: "Password(英数字7文字以上)", autocomplete: "new-password"
+          = f.password_field :password_confirmation, placeholder: "Password", autocomplete: "new-password"
 
       .FormField
         .FormField__label
@@ -54,7 +55,7 @@
       .FormField
         .FormField__label
           = f.label :last_name_kana, "氏名カナ"
-          %span (全角)
+          %span (全角カタカナ)
           %h4 必須
         .FormField__input
           .FormField__input--half
@@ -64,19 +65,23 @@
 
       .FormField
         .FormField__label
-          = f.label :birth_year,"生年月日"
+          = f.label :birth_date, "生年月日"
           %h4 必須
+        .FormField__input--birth
+          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, start_year: 1920, end_year: (Time.now.year - 5), default: Date.new(1990, 1, 1), date_separator: '%s'), '年', '月') + '日'
+
+      .FormField
+        .FormField__label
+          = f.label :tel_number,"電話番号"
+          %span (半角数字、ハイフンなし)
           %br
         .FormField__input
-          .FormField__input--birth
-            = f.text_field :birth_year, autofocus: true, autocomplete: "birth_year"
-          %span 年
-          .FormField__input--birth
-            = f.text_field :birth_month, autofocus: true, autocomplete: "birth_month"
-          %span 月
-          .FormField__input--birth
-            = f.text_field :birth_day, autofocus: true, autocomplete: "birth_day"
-          %span 日
+          .FormField__input--normal
+            = f.text_field :tel_number, autofocus: true, autocomplete: "tel_number"
 
       .actions
-        = f.submit "アカウント作成"
+        = f.submit "次へ進む"
+
+  .AccountPage__have
+    アカウントを既に持っている方は
+    = render "devise/shared/links"
