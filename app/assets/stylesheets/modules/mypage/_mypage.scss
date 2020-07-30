@@ -1,11 +1,14 @@
 .Mypage_wrapper {
   height: 100vh;
   width: 100vw;
-  background-color: #f8f8f8;
+  background-color: #f5f5f5;
   padding: 40px 200px;
   display: flex;
   .Side_bar{
     margin-right: 40px;
+    &__List{
+      margin-bottom: 30px;
+    }
     &__Head{
       font-weight: bold;
       margin-bottom: 5px;
@@ -15,8 +18,8 @@
       width: 280px;
       font-size: 14px;
       line-height: 16px;
-      color: #333333;
       background-color: white;
+      color: #333333;
       text-decoration: none;
       display: block;
       padding: 16px;
@@ -47,7 +50,7 @@
         margin-right: 30px;
       }
       &__Center{
-        margin: auto;
+        margin: auto 0;
         &__Name{
           font-weight: bold;
           margin-bottom: 10px;
@@ -68,7 +71,6 @@
       &__Title{
         height: 65px;
         width: 100%;
-        color: #333333;
         font-weight: bold;
         padding: 20px;
       }
@@ -79,13 +81,12 @@
         &__Box{
           height: 65px;
           width: 50%;
-          color: #333333;
           font-weight: bold;
           text-align: center;
           padding: 20px;
         }
         .Choosing{
-          border-top: solid 2px #00cccc;
+          border-top: solid 2px #3CCACE;
         }
         .Non_choosing{
           background-color: #EAEAEA;
@@ -98,4 +99,12 @@
       }
     }
   }
+}
+
+.Text{
+  color: #333333;
+}
+
+.Text_s{
+  font-size: 14px;
 }
