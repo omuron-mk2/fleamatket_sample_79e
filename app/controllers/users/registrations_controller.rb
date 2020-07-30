@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   # before_action :authenticate_user!, except [:new]
 
-  layout 'no_header_footer'
+  layout 'no_header_footer', except: :edit
 
   def new
     @user = User.new
@@ -39,6 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
+
 
   # GET /resource/edit
   # def edit
@@ -75,6 +76,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   end
+
+  # def update_resource(resource, params)
+  #   resource.update_without_password(params)
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
