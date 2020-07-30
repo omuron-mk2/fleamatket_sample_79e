@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :cards 
-  resources :users, only: :show
+  resources :users, only: [:show, :create, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
