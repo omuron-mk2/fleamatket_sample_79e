@@ -1,44 +1,19 @@
-.Mypage_wrapper
-  .Side_bar
-    %h3.Side_bar__Head 設定
-    %ul.Side_bar__List
-      %li
-        = link_to "#", class: "Mypage-nav-list__Item" do
-          プロフィール
-          %i.fas.fa-chevron-right
-        = link_to "#", class: "Mypage-nav-list__Item" do
-          発送元・お届け先住所変更
-          %i.fas.fa-chevron-right
-        = link_to "#", class: "Mypage-nav-list__Item" do
-          お支払い方法
-          %i.fas.fa-chevron-right
-        = link_to "#", class: "Mypage-nav-list__Item" do
-          メール/パスワード
-          %i.fas.fa-chevron-right
-        = link_to "#", class: "Mypage-nav-list__Item" do
-          本人情報
-          %i.fas.fa-chevron-right
-        = link_to "#", class: "Mypage-nav-list__Item" do
-          電話番号の確認
-          %i.fas.fa-chevron-right
-        = link_to users_sign_out_path, class: "Mypage-nav-list__Item" do
-          ログアウト
-          %i.fas.fa-chevron-right
+.Mypage_wrapper.Text
+  = render "side_bar"
   .Main
     .User_info
-      = link_to image_tag("no-profile-image.jpg", class: "User_info__Image"), user_path(current_user.id)
+      -# = link_to image_tag("no-profile-image.jpg", class: "User_info__Image"), user_path(current_user.id)
+      = attachment_image_tag @user, :profile_image, fallback: "no-profile-image.jpg", class: "User_info__Image"
       .User_info__Center
         .User_info__Center__Name
-          ユーザー名
+          = @user.nickname
         .User_info__Center__Number
           出品数 13
       .User_info__Text
-        プロフィール文 XXXXXXXXXXXXXXXXXXXXXXXX
-        %br
-        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        = simple_format(@user.profile_text)
     .User_items
       .User_items__Title
-        出品した商品
+        購入した商品
       .User_items__Boxes
         .User_items__Boxes__Box.Choosing
           取引中
