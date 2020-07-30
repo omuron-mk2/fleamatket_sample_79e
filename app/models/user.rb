@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  validates :password, presence: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
 
   has_one :address, dependent: :destroy
   has_many :bought_items, foreign_key: "buyer_id", class_name: "Item", dependent: :destroy
@@ -14,4 +17,6 @@ class User < ApplicationRecord
   validates :password, presence: true, format: {with: /\A[a-zA-Z0-9]+\z/}
   validates :last_name, :first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
   validates :last_name_kana, :first_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
+
+  attachment :profile_image
 end
