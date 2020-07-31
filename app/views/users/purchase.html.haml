@@ -1,0 +1,20 @@
+.Mypage_wrapper.Text
+  = render "users/side_bar"
+  .Main
+    .User_items
+      .User_items__Title
+        購入した商品
+      %ul.User_items__Tabs
+        %li.User_items__Tabs__Tab--P
+          = link_to "取引中", "#", class: "User_item Text Active"
+        %li.User_items__Tabs__Tab--P
+          = link_to "過去の取引", "#", class: "User_item Text"
+      %ul.User_items__Contents
+        %li.User_items__Contents__Content.Show
+          = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
+          %br
+          .User_items__Contents__Content__Text 取引中の商品がありません
+        %li.User_items__Contents__Content
+          = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
+          %br
+          .User_items__Contents__Content__Text 過去に取引した商品がありません
