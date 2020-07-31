@@ -9,32 +9,32 @@
   display: flex;
   .Side_bar{
     margin-right: 40px;
-    &__List{
-      margin-bottom: 30px;
-    }
     &__Head{
       font-weight: bold;
       margin-bottom: 5px;
     }
-    .Mypage-nav-list__Item{
-      height: 48px;
-      width: 280px;
-      font-size: 14px;
-      line-height: 16px;
-      background-color: white;
-      color: #333333;
-      text-decoration: none;
-      display: block;
-      padding: 16px;
-      border-bottom: solid 0.5px #EAEAEA;
-      display: flex;
-      justify-content: space-between;
-      .fa-chevron-right{
-        color: #C4C4C4;
+    &__List{
+      margin-bottom: 30px;
+      &__Item{
+        height: 48px;
+        width: 280px;
+        font-size: 14px;
+        line-height: 16px;
+        background-color: white;
+        color: #333333;
+        text-decoration: none;
+        display: block;
+        padding: 16px;
+        border-bottom: solid 0.5px #EAEAEA;
+        display: flex;
+        justify-content: space-between;
+        .fa-chevron-right{
+          color: #C4C4C4;
+        }
       }
     }
   }
-  .Main{
+  .Mypage{
     height: 100%;
     width: 100%;
     .User_info{
@@ -52,14 +52,15 @@
         object-fit: cover;
       }
       &__Center{
+        width: 120px;
         margin: auto 0;
+        text-align: center;
         &__Name{
           font-weight: bold;
           margin: 0 30px 10px;
         }
         &__Number{
           font-size: 14px;
-          text-align: center;
         }
       }
       &__Text{
