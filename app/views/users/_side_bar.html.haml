@@ -7,29 +7,21 @@
       = link_to "#", class: "Mypage-nav-list__Item" do
         出品する
         %i.fas.fa-chevron-right
-      = link_to "#", class: "Mypage-nav-list__Item" do
-        出品した商品 - 出品中
+      = link_to "/users/#{current_user.id}/exhibition", class: "Mypage-nav-list__Item" do
+        出品した商品
         %i.fas.fa-chevron-right
-      = link_to "#", class: "Mypage-nav-list__Item" do
-        出品した商品 - 取引中
+      = link_to "/users/#{current_user.id}/purchase", class: "Mypage-nav-list__Item" do
+        購入した商品
         %i.fas.fa-chevron-right
-      = link_to "#", class: "Mypage-nav-list__Item" do
-        出品した商品 - 売却済み
-        %i.fas.fa-chevron-right
-      = link_to users_sign_out_path, class: "Mypage-nav-list__Item" do
-        購入した商品 - 取引中
-        %i.fas.fa-chevron-right
-      = link_to users_sign_out_path, class: "Mypage-nav-list__Item" do
-        購入した商品 - 過去の取引
-        %i.fas.fa-chevron-right
+
   %h3.Side_bar__Head 設定
   %ul.Side_bar__List
     %li
       = link_to edit_user_path(current_user.id), class: "Mypage-nav-list__Item" do
         プロフィール
         %i.fas.fa-chevron-right
-      = link_to "#", class: "Mypage-nav-list__Item" do
-        発送元・お届け先住所変更
+      = link_to "/users/addresses/#{current_user.id}/edit", class: "Mypage-nav-list__Item" do
+        送り先情報
         %i.fas.fa-chevron-right
       = link_to "#", class: "Mypage-nav-list__Item" do
         お支払い方法
