@@ -1,10 +1,10 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card, only: [:new, :create]
+  before_action :have_card, except: [:create]
 
   def new
-    card = Card.where(user_id: current_user.id).first
-    redirect_to card_path(card) if @card.present?
+    redirect_to card_path(@credit) if @card.present?
   end
 
   def create
@@ -28,31 +28,31 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-    else
+    if @credit.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
       customer.delete
-      card.delete
+      @credit.delete
     end
       redirect_to action: "new"
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "new" 
-    else
+    if @credit.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_number)
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      @default_card_information = customer.cards.retrieve(@credit.card_number)
+    else
+      redirect_to action: "new" 
     end
   end
 
   private
   def set_card
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
   end
-
+  
+  def have_card
+    @credit = Card.find_by(user_id: current_user.id)
+  end
 end
