@@ -3,9 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
-  validates :password, presence: true, on: :create
-  validates :password_confirmation, presence: true, on: :create
 
   has_one :address, dependent: :destroy
   has_many :bought_items, foreign_key: "buyer_id", class_name: "Item", dependent: :destroy
