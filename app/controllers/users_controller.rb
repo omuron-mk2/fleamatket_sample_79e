@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
-    # @items = current_user.items
     respond_to do |format|
       format.html
       format.json { render json: @user}
