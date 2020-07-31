@@ -1,0 +1,30 @@
+.Purchase 
+  .Purchase__title
+    購入内容の確認
+  .Purchase__info
+    -# item.image
+    = image_tag "a001.png", size: ""
+    .Purchase__info--name
+      %p ⭐︎商品名
+      -# item.name
+      %span カレーライス
+      %p ❤️値段
+      -# item.price
+      %span ５００円 
+  .Purchase__money
+    .Purchase__money--name
+      支払い金額
+    .Purchase__money--price
+      -# item.price
+      500円
+  .PurchaseCard
+    %h1 クレジットカード情報
+    .PurchaseCard__info
+      .PurchaseCard__info--text カード番号
+      = "**** **** **** " + @default_card_information.last4
+      .PurchaseCard__info--text 有効期限
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
+  .Purchase__btn
+    = link_to "登録クレジットカードで購入する", pay_purchases_path ,method: :post ,class: "btn"
