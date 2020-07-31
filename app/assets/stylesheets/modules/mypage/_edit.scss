@@ -2,11 +2,99 @@
   color: #888888;
 }
 .Account_delete{
-  background-color: white;
-  text-align: center;
-  display: block;
-  cursor: pointer;
-  border: none;
+  width: 130px;
   margin-top: 15px;
+  margin-left: 270px;
+  &__Btn{
+    color: black;
+    background-color: white;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border: none;
+    margin-right: 3px;
+    display: flex;
+    text-decoration: none;
+  }
+  &--Link{
+    margin: auto 3px;
+  }
 }
 
+.HeaderUsers{
+  width: 100vw;
+  height: 100px;
+  background-color: #fbfbf6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Profile--Adress{
+  height: 820px;
+  width: 100%;
+  background-color: white;
+  margin: 0 auto;
+  &__Form{
+    width: 300px;
+    margin: auto;
+    .FormField{
+      &__input{
+        display: flex;
+        justify-content: space-between;
+        &--normal{
+          input, select{
+            height: 35px;
+            width: 300px;
+            padding-left: 5px;
+            margin: 3px 0;
+            border: solid 1px #C4C4C4;
+            border-radius: 3px;
+          }
+        }
+        &--half{
+          input{
+            height: 35px;
+            width: 140px;
+            padding-left: 5px;
+          }
+        }
+        &--birth{
+          input, select{
+            height: 35px;
+          }
+        }
+        &--post{
+          input{
+            height: 35px;
+            width: 280px;
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.Create_address{
+  margin: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+span{
+  font-size: 14px;
+}
+
+h4{
+  display: inline;
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid red;
+  padding: 1px;
+}
