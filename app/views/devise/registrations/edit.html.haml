@@ -1,34 +1,38 @@
 .Mypage_wrapper.Text
   = render "users/side_bar"
 
-  .Profile
-    .Profile__Title メールアドレス/パスワードを変更する
-    .Profile__Form
+  .Main
+    .Main__Title メールアドレス/電話番号/パスワードを変更する
+    .Main__Form
       = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
         = render "devise/shared/error_messages", resource: resource
-        .FormField--Email
-          = f.label :email, class: "Form_label"
+        .Main__Form__Field
+          = f.label "メールアドレス", class: "Label"
           %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: "Profile__Form__Field"
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "Form_box"
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %div
             Currently waiting confirmation for: #{resource.unconfirmed_email}
-        .FormField
-          = f.label "パスワード(英数字7文字以上)", class: "Form_label"
+        .Main__Form__Field
+          = f.label "電話番号", class: "Label"
           %br/
-          = f.password_field :password, autocomplete: "new-password", class: "Profile__Form__Field"
+          = f.text_field :tel_number, autocomplete: "tel_number", class: "Form_box"
+        .Main__Form__Field
+          = f.label "パスワード(英数字7文字以上)", class: "Label"
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: "Form_box"
           .Text_s.Comment ※パスワードを変更しない場合は空白のままにしてください
-        .FormField
-          = f.label "確認用パスワード", class: "Form_label"
+        .Main__Form__Field
+          = f.label "確認用パスワード", class: "Label"
           %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: "Profile__Form__Field"
-        .FormField
-          = f.label :current_password, class: "Form_label"
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "Form_box"
+        .Main__Form__Field
+          = f.label :current_password, class: "Label"
           %br/
-          = f.password_field :current_password, autocomplete: "current-password", class: "Profile__Form__Field"
+          = f.password_field :current_password, autocomplete: "current-password", class: "Form_box"
           .Text_s.Comment ※アカウント情報を変更するには、現在のパスワードを入力する必要があります
         .actions
-          = f.submit "変更する", class: "Profile__Form__Btn--Save"
+          = f.submit "変更する", class: "Btn"
       .Account_delete
         = link_to edit_user_path(current_user.id), data: { confirm: "アカウントを削除しますか？" }, method: :delete, class: "Account_delete__Btn Text_s" do
           アカウントの削除
