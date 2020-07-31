@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   # before_action :authenticate_user!, except [:new]
 
-  layout 'no_header_footer', except: [:edit, :edit_address]
+  layout 'no_header_footer', except: [:edit, :edit_address, :show]
 
   def new
     @user = User.new
@@ -26,6 +26,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = @user.build_address
     render :new_address
   end
+
+  # def update
+  #   if current_user.update(sign_up_params)
+  #     redirect_to user_path(current_user.id)
+  #   else
+  #     render :edit_address
+  #   end
+  # end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
@@ -53,6 +61,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def show
+    @user = User.find(current_user.id)
+    @address = @user.address
+  end
 
 
 
