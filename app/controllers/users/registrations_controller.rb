@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   # before_action :authenticate_user!, except [:new]
 
-  layout 'no_header_footer', except: :edit
+  layout 'no_header_footer', except: [:edit, :edit_address]
 
   def new
     @user = User.new
@@ -39,6 +39,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
+
+  def edit_address
+    user = User.find(current_user.id)
+    @address = user.address
+  end
+
+  def update_address
+    if current_user.address.update(address_params)
+      redirect_to user_path(current_user.id)
+    else
+      render :edit_address
+    end
+  end
+
+
 
 
   # GET /resource/edit
