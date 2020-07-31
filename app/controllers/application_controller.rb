@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
                     :first_name,
                     :last_name_kana,
                     :first_name_kana,
-                    :birth_year,
-                    :birth_month,
-                    :birth_day,
+                    :birth_date,
                     :tel_number
                   ]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs

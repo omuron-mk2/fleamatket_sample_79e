@@ -1,6 +1,6 @@
 $(function(){
   var form = $("#charge_form");
-  Payjp.setPublicKey("pk_test_c45b8051ee7b985365246a2f");
+  Payjp.setPublicKey("pk_test_87b7fc67028f90b331f87b22");
   $("#card_token").on("click",function(e){
     e.preventDefault();
 
