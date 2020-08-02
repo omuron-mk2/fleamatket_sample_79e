@@ -18,6 +18,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
+    respond_to do |format|
+      format.html
+      format.json { render json: @user}
+    end
   end
 
   def update
