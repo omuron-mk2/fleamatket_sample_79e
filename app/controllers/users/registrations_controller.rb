@@ -27,14 +27,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
-  # def update
-  #   if current_user.update(sign_up_params)
-  #     redirect_to user_path(current_user.id)
-  #   else
-  #     render :edit_address
-  #   end
-  # end
-
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
@@ -55,8 +47,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_address
     if current_user.address.update(address_params)
+      flash[:notice] = '送り先情報を変更しました。'
       redirect_to user_path(current_user.id)
     else
+      flash.now[:alert] = '送り先情報を変更できませんでした。'
       render :edit_address
     end
   end
@@ -102,6 +96,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  end
+
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 
   # def update_resource(resource, params)
