@@ -19,7 +19,7 @@
   width: 40vw;
   height: 100%;
   padding-bottom: 30px;
-  margin: 0 auto 0;
+  margin: 0 auto 100px;
   border-radius: 4px;
   border: 1px #ddd solid;
   background-color: #f6f7f8;
@@ -27,7 +27,7 @@
     font-size: 36px;
     font-family: 'arial black';
     color: skyblue;
-    margin-top: 20px;
+    margin: 20px;
   }
   &__have{
     font-size: 12px;
@@ -38,8 +38,9 @@
     }
   }
   &__form{
+    font-size: 14px;
     .FormField{
-      margin-top: 30px;
+      margin-top: 25px;
       &__label{
         color: black;
         h4 {
@@ -60,22 +61,36 @@
       &__input{
         display: flex;
         &--normal{
-          input{
+          input, select{
+            height: 35px;
             width: 300px;
+            padding-left: 5px;
           }
         }
         &--half{
           input{
+            height: 35px;
             width: 140px;
+            padding-left: 5px;
             margin-right: 15px;
           }
         }
         &--birth{
+          input, select{
+            height: 35px;
+          }
+        }
+        &--post{
           input{
-            width: 80px;
+            height: 35px;
+            width: 274px;
+            padding-left: 5px;
           }
         }
       }
+    }
+    .FormField__remember{
+      margin-top: 10px;
     }
     .actions{
       display: flex;
@@ -92,4 +107,14 @@
       }
     }
   }
+}
+
+.Create_address{
+  margin: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.field_with_errors {
+  display: contents;
 }
