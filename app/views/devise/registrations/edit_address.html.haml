@@ -2,7 +2,7 @@
   = render "users/side_bar"
 
   .Main
-    .Main__Title 送り先情報を変更する
+    .Main__Title 送り先情報の変更
     .Main__Form--Address
       = form_with model: @address, url: "/users/addresses/#{current_user.id}", local: true do |f|
         = render "devise/shared/error_messages", resource: @address
