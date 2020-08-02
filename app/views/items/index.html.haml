@@ -1,7 +1,5 @@
 .Wrapper
   = render 'items/info_body'
   = render 'items/items_body'
-= link_to "#" do
-  .sellBtn 
-    %span.sellBtn__text 出品する
-    = image_tag "icon_camera.png", size: "50x50"
+  = render 'items/download_body'
+  = render 'items/btn'
