@@ -18,7 +18,7 @@
       .right-list
         - if user_signed_in?
           .right-list__mypage
-            = link_to "#", class:"singup-content" do
+            = link_to user_path(current_user.id), class:"singup-content" do
               マイページ
         - else
           .right-list__login

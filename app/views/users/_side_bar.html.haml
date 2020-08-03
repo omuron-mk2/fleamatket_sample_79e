@@ -1,0 +1,37 @@
+.Side_bar.Text
+  %ul.Side_bar__List
+    %li
+      = link_to user_path(current_user.id), class: "Side_bar__List__Item" do
+        マイページ
+        %i.fas.fa-chevron-right
+      = link_to "#", class: "Side_bar__List__Item" do
+        出品する
+        %i.fas.fa-chevron-right
+      = link_to "/users/#{current_user.id}/exhibition", class: "Side_bar__List__Item" do
+        出品した商品
+        %i.fas.fa-chevron-right
+      = link_to "/users/#{current_user.id}/purchase", class: "Side_bar__List__Item" do
+        購入した商品
+        %i.fas.fa-chevron-right
+
+  %h3.Side_bar__Head 設定
+  %ul.Side_bar__List
+    %li
+      = link_to edit_user_path(current_user.id), class: "Side_bar__List__Item" do
+        プロフィールの編集
+        %i.fas.fa-chevron-right
+      = link_to edit_user_registration_path(current_user.id), class: "Side_bar__List__Item" do
+        メール/電話番号/パスワードの変更
+        %i.fas.fa-chevron-right
+      = link_to "/users/addresses/#{current_user.id}/edit", class: "Side_bar__List__Item" do
+        送り先情報の変更
+        %i.fas.fa-chevron-right
+      = link_to "#", class: "Side_bar__List__Item" do
+        お支払い方法
+        %i.fas.fa-chevron-right
+      = link_to "/users/resistrations/#{current_user.id}", class: "Side_bar__List__Item" do
+        本人情報
+        %i.fas.fa-chevron-right
+      = link_to users_sign_out_path, data: { confirm: "ログアウトしますか？" }, class: "Side_bar__List__Item" do
+        ログアウト
+        %i.fas.fa-chevron-right
