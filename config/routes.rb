@@ -13,11 +13,17 @@ Rails.application.routes.draw do
   end
   root 'items#index'
 
-  resources :cards 
-
   resources :users, only: [:show, :create, :edit, :update]
   get '/users/:id/exhibition', to: 'users#exhibition'
   get '/users/:id/purchase', to: 'users#purchase'
 
+  resources :cards, only: [:new, :create, :show, :destroy] 
+
+  resources :purchases do
+    collection do
+      get "buy"
+      post "pay"
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

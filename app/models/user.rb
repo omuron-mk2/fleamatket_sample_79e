@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item", dependent: :destroy
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item", dependent: :destroy
   has_many :cards, dependent: :destroy
+  has_many :purchases_of_seller, class_name: 'Purchase', foreign_key: 'seller_id'
+  has_many :purchases_of_buyer, class_name: 'Purchase', foreign_key: 'buyer_id'
 
   validates :nickname, :email, presence: true
   validates :last_name, :first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/}
