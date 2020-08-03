@@ -1,6 +1,8 @@
 class PurchasesController < ApplicationController
   require "payjp"
 
+  layout 'no_header_footer'
+
   def buy
     if user_signed_in?
       card = Card.find_by(user_id: current_user.id)

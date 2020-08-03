@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
+.Mypage_wrapper {
+  width: 100vw;
+  background-color: #f5f5f5;
+  padding: 40px 200px;
+  display: flex;
+  .Side_bar{
+    margin-right: 40px;
+    &__Head{
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    &__List{
+      margin-bottom: 30px;
+      &__Item{
+        height: 48px;
+        width: 280px;
+        font-size: 14px;
+        line-height: 16px;
+        background-color: white;
+        color: #333333;
+        text-decoration: none;
+        display: block;
+        padding: 16px;
+        border-bottom: solid 0.5px #EAEAEA;
+        display: flex;
+        justify-content: space-between;
+        .fa-chevron-right{
+          color: #C4C4C4;
+        }
+      }
+    }
+  }
+  .Mypage{
+    height: 100%;
+    width: 100%;
+    .User_info{
+      height: 160px;
+      width: 100%;
+      background-color: white;
+      padding: 30px 50px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      &__Image{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      &__Center{
+        width: 80px;
+        margin: auto 20px;
+        text-align: center;
+        &__Name{
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        &__Number{
+          font-size: 14px;
+        }
+      }
+      &__Text{
+        width: 380px;
+        font-size: 14px;
+        margin: auto 0;
+      }
+    }
+    .User_items{
+      width: 100%;
+      background-color: white;
+      &__Title{
+        height: 65px;
+        width: 100%;
+        font-weight: bold;
+        padding: 20px;
+      }
+      &__Tabs{
+        height: 65px;;
+        width: 100%;
+        display: flex;
+        &__Tab--E{
+          height: 100%;
+          width: calc(100% / 3);
+          font-weight: bold;
+          text-align: center;
+        }
+        &__Tab--P{
+          height: 100%;
+          width: 50%;
+          font-weight: bold;
+          text-align: center;
+        }
+        .User_item{
+          height: 65px;
+          background-color: #EAEAEA;
+          padding: 20px;
+          display: block;
+        }
+        .Active{
+          background-color: white;
+          border-top: solid 2px #3CCACE;
+        }
+      }
+      &__Contents{
+        &__Content{
+          color: #C4C4C4;
+          text-align: center;
+          padding: 30px;
+          display: none;
+          &__Image{
+            margin-top: 10px;
+          }
+          &__Text{
+            margin: 15px;
+          }
+        }
+        .Show{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.Text{
+  color: #333333;
+  text-decoration: none;
+}
+
+.Text_s{
+  font-size: 14px;
+}

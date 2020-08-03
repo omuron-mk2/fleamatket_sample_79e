@@ -1,0 +1,29 @@
+.Mypage_wrapper.Text
+  = render "side_bar"
+  .Mypage
+    .User_info
+      = attachment_image_tag @user, :profile_image, fallback: "no-profile-image.jpg", class: "User_info__Image"
+      .User_info__Center
+        .User_info__Center__Name
+          = @user.nickname
+        .User_info__Center__Number
+          出品数 0
+      .User_info__Text
+        = simple_format(@user.profile_text)
+    .User_items
+      .User_items__Title
+        購入した商品
+      %ul.User_items__Tabs
+        %li.User_items__Tabs__Tab--P
+          = link_to "取引中", "#", class: "User_item Text Active"
+        %li.User_items__Tabs__Tab--P
+          = link_to "過去の取引", "#", class: "User_item Text"
+      %ul.User_items__Contents
+        %li.User_items__Contents__Content.Show
+          = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
+          %br
+          .User_items__Contents__Content__Text 取引中の商品がありません
+        %li.User_items__Contents__Content
+          = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
+          %br
+          .User_items__Contents__Content__Text 過去に取引した商品がありません
