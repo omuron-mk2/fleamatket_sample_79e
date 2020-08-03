@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_101912) do
+ActiveRecord::Schema.define(version: 2020_08_02_005215) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "send_last_name", null: false
@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 2020_07_24_101912) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
     t.bigint "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "src"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -66,13 +66,15 @@ ActiveRecord::Schema.define(version: 2020_07_24_101912) do
     t.string "delivery_fee", null: false
     t.integer "prefecture_id", null: false
     t.string "days", null: false
-    t.string "status", null: false
     t.integer "buyer_id"
     t.integer "seller_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "brand_id"
+    t.bigint "category_id"
+    t.string "status", default: "出品中"
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,4 +104,5 @@ ActiveRecord::Schema.define(version: 2020_07_24_101912) do
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
 end
