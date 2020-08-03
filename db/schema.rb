@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_005215) do
+ActiveRecord::Schema.define(version: 2020_07_29_060048) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "send_last_name", null: false
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
     t.index ["category_id"], name: "index_items_on_category_id"
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "buyer_id"
+    t.integer "seller_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_purchases_on_card_id"
+    t.index ["item_id"], name: "index_purchases_on_item_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -85,9 +96,6 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_day", null: false
     t.string "tel_number"
     t.text "profile_text"
     t.string "profile_image"
@@ -96,6 +104,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "birth_date", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -105,4 +114,6 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "purchases", "cards"
+  add_foreign_key "purchases", "items"
 end

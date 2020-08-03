@@ -16,4 +16,5 @@ class Item < ApplicationRecord
   validates :days, presence: true
   validates :images, presence: true
 
+  has_one :purchase, dependent: :destroy
 end
