@@ -402,9 +402,9 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
+  rails-controller-testing
   refile!
   refile-mini_magick!
-  rails-controller-testing
   rspec-rails (~> 4.0.0.beta2)
   sass-rails (~> 5)
   selenium-webdriver
