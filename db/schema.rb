@@ -66,13 +66,13 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
     t.string "delivery_fee", null: false
     t.integer "prefecture_id", null: false
     t.string "days", null: false
-    t.string "status", null: false
     t.bigint "seller_id", null: false
     t.bigint "buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "brand_id"
     t.bigint "category_id"
+    t.string "status", default: "出品中"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
