@@ -1,0 +1,165 @@
+.Main{
+  width: 100%;
+  background-color: white;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  &__Title{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #C4C4C4;
+  }
+  &__Form{
+    width: 400px;
+    margin: auto;
+    .Image_prev{
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 10px auto;
+      display: block;
+    }
+    .Btn_image{
+      width: 90px;
+      font-size: 14px;
+      background-color: #EAEAEA;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: block;
+      cursor: pointer;
+      margin: 0 auto 25px;
+    }
+    &__Field{
+      margin-top: 25px;
+      .Label{
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .Form_box{
+        height: 35px;
+        width: 100%;
+        padding-left: 5px;
+        margin: 3px 0;
+        border: solid 1px #C4C4C4;
+        border-radius: 3px;
+        &--Large{
+          width: 100%;
+          padding-left: 5px;
+          margin: 3px 0;
+          border: solid 1px #C4C4C4;
+          border-radius: 3px;
+        }
+        &--Half{
+          height: 35px;
+          width: 140px;
+          padding-left: 5px;
+          margin: 3px 0;
+          border: solid 1px #C4C4C4;
+          border-radius: 3px;
+        }
+        &--Post{
+          height: 35px;
+          width: 280px;
+          padding-left: 5px;
+          margin: 3px 0;
+          border: solid 1px #C4C4C4;
+          border-radius: 3px;
+        }
+      }
+      .Comment{
+        color: #888888;
+      }
+    }
+    .Btn{
+      height: 40px;
+      width: 100px;
+      font-size: 14px;
+      color: white;
+      background-color: #3CCACE;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: block;
+      cursor: pointer;
+      border: none;
+      margin: 30px auto 0;
+    }
+    .Account_delete{
+      width: 130px;
+      margin-top: 20px;
+      margin-left: 270px;
+      &__Btn{
+        color: black;
+        background-color: white;
+        text-align: center;
+        display: block;
+        cursor: pointer;
+        border: none;
+        margin-right: 3px;
+        display: flex;
+        text-decoration: none;
+      }
+      &--Link{
+        margin: auto 3px;
+      }
+    }
+  }
+  &__Form--Address{
+    width: 300px;
+    margin: auto;
+    span{
+      font-size: 14px;
+    }
+    h4{
+      display: inline;
+      color: red;
+      font-size: 12px;
+      font-weight: bold;
+      border: 1px solid red;
+      padding: 1px;
+    }
+    .Input{
+      display: flex;
+      justify-content: space-between;
+      select{
+        height: 35px;
+        width: 300px;
+        padding-left: 5px;
+        margin: 3px 0;
+        border: solid 1px #C4C4C4;
+        border-radius: 3px;
+      }
+    }
+    .Btn{
+      height: 40px;
+      width: 100px;
+      font-size: 14px;
+      color: white;
+      background-color: #3CCACE;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: block;
+      cursor: pointer;
+      border: none;
+      margin: 30px auto 0;
+    }
+  }
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.Confirmation_field{
+  margin-top: 25px;
+  display: flex;
+  &__label{
+    width: 180px;
+    font-size: 14px;
+    font-weight: bold;
+  }  
+}
+
+

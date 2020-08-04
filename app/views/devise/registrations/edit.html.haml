@@ -1,36 +1,39 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.Mypage_wrapper.Text
+  = render "users/side_bar"
+
+  .Main
+    .Main__Title メールアドレス/電話番号/パスワードの変更
+    .Main__Form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .Main__Form__Field
+          = f.label "メールアドレス", class: "Label"
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "Form_box"
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .Main__Form__Field
+          = f.label "電話番号", class: "Label"
+          %br/
+          = f.text_field :tel_number, autocomplete: "tel_number", class: "Form_box"
+        .Main__Form__Field
+          = f.label "パスワード(英数字7文字以上)", class: "Label"
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: "Form_box"
+          .Text_s.Comment ※パスワードを変更しない場合は空白のままにしてください
+        .Main__Form__Field
+          = f.label "確認用パスワード", class: "Label"
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "Form_box"
+        .Main__Form__Field
+          = f.label :current_password, class: "Label"
+          %br/
+          = f.password_field :current_password, autocomplete: "current-password", class: "Form_box"
+          .Text_s.Comment ※アカウント情報を変更するには、現在のパスワードを入力する必要があります
+        .actions
+          = f.submit "変更する", class: "Btn"
+      .Account_delete
+        = link_to edit_user_path(current_user.id), data: { confirm: "アカウントを削除しますか？" }, method: :delete, class: "Account_delete__Btn Text_s" do
+          アカウントの削除
+          %i.fas.fa-chevron-right.Account_delete--Link

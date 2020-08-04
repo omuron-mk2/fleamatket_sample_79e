@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 2020_07_29_014722) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
     t.bigint "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "src"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -72,9 +72,23 @@ ActiveRecord::Schema.define(version: 2020_07_29_014722) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "brand_id"
+    t.bigint "category_id"
+    t.string "status", default: "出品中"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+  end
+
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "buyer_id"
+    t.integer "seller_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_purchases_on_card_id"
+    t.index ["item_id"], name: "index_purchases_on_item_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_014722) do
     t.string "first_name_kana", null: false
     t.string "tel_number"
     t.text "profile_text"
-    t.string "profile_image"
+    t.string "profile_image_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -104,4 +118,5 @@ ActiveRecord::Schema.define(version: 2020_07_29_014722) do
   add_foreign_key "items", "brands"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "items", "categories"
 end

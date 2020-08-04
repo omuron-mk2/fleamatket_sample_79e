@@ -1,0 +1,57 @@
+.Mypage_wrapper.Text
+  = render "users/side_bar"
+
+  .Main
+    .Main__Title 送り先情報の変更
+    .Main__Form--Address
+      = form_with model: @address, url: "/users/addresses/#{current_user.id}", local: true do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .Main__Form__Field
+          = f.label :last_name, "送り先氏名", class: "Label"
+          %span (全角)
+          %h4 必須
+          .Input
+            .Input--half
+              = f.text_field :send_last_name, placeholder: "名字", autofocus: true, autocomplete: "send_last_name", class: "Form_box--Half"
+            .Input--half
+              = f.text_field :send_first_name, placeholder: "名前", autocomplete: "send_first_name", class: "Form_box--Half"
+        .Main__Form__Field
+          = f.label :last_name_kana, "送り先氏名カナ", class: "Label"
+          %span (全角カタカナ)
+          %h4 必須
+          .Input
+            .Input--half
+              = f.text_field :send_last_name_kana, placeholder: "ミョウジ", autocomplete: "send_last_name_kana", class: "Form_box--Half"
+            .Input--half
+              = f.text_field :send_first_name_kana, placeholder: "ナマエ", autocomplete: "send_first_name_kana", class: "Form_box--Half"
+        .Main__Form__Field
+          = f.label "郵便番号", class: "Label"
+          %span (半角数字、ハイフンなし)
+          %h4 必須
+          %br
+          %span 〒
+          = f.text_field :postal_code, autocomplete: "postal_code", class: "Form_box--Post"  
+        .Main__Form__Field
+          = f.label "都道府県", class: "Label"
+          %h4 必須
+          .Input
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "Form_box"   
+        .Main__Form__Field
+          = f.label "市町村", class: "Label"
+          %span (全角)
+          %h4 必須
+          .Input
+            = f.text_field :city, autocomplete: "city", class: "Form_box"
+        .Main__Form__Field
+          = f.label "番地", class: "Label"
+          %h4 必須
+          .Input
+            = f.text_field :house_number, autocomplete: "house_number", class: "Form_box"
+
+        .Main__Form__Field
+          = f.label "部屋番号", class: "Label"
+          .Input
+            = f.text_field :room_number, autocomplete: "room_number", class: "Form_box"
+
+        .actions
+          = f.submit "変更する", class: "Btn"

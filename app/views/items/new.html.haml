@@ -1,0 +1,76 @@
+.item-exhibition
+  .item-exhibition__main
+    = form_with model: @item, class: "item-", local: true do |f|
+      .image-content
+        #image-box
+          出品画像
+          %span.form-require 必須
+          #previews
+            - if @item.persisted?
+              - @item.images.each_with_index do |image, i|
+                = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+          = f.fields_for :images do |image|
+            .js-file_group{"data-index": "#{image.index}"}
+              = image.file_field :src, class: 'js-file'
+              %br/
+              %span.js-remove 削除
+            - if @item.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file_group{"data-index": "#{@item.images.count}"}
+              = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", style: "display:none", class: 'js-file'
+              %i.fas.fa-camera
+              .js-remove 削除
+      .items-name
+        = f.label :name, "商品名", class: 'items-name__title'
+        %span.form-require 必須
+        .items-neme-main
+          = f.text_field :name, autofocus: true, class: 'items-neme-main__main'
+      .item-text
+        = f.label :text, "商品説明", class: 'item-text__title'
+        %span.form-require 必須
+        .item-text-main
+          = f.text_area :text, autofocus: true, class: 'item-text-main__main'
+      .item-price
+        = f.label :price, "価格", class: 'item-price__title'
+        %span.form-require 必須
+        .item-price-main
+          .item-price-main__text ¥
+          = f.number_field :price, autofocus: true, class: 'item-price-main__main'
+      .item-condition
+        = f.label :condition, "商品状態", class: 'item-condition__title'
+        %span.form-require 必須
+        .item-condition-main
+          = f.select :condition, [["新品、未使用"],["未使用に近い"],["目立った傷汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], class: '.item-condition-main__main'
+      .item-category
+        .item-category__main
+          = f.label 'カテゴリー', class: 'listing-default__label'
+          %span.form-require 必須
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "---"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+              %i.fas.fa-chevron-down.item-category__fas
+      .form-group.brand--container
+        = f.fields_for :brand do |brand|
+          = brand.label "ブランド", class: 'item-brand'
+          %span.form-require-gray 任意
+          %div
+            = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
+      .item-delivery
+        = f.label :delivery_fee, "送料負担", class: 'item-delivery__title'
+        %span.form-require 必須
+        .item-delivery-main
+          = f.select :delivery_fee, [["出品者負担"],["購入者負担"]], class: 'item-delivery-main_main'
+      .item-prefecture
+        = f.label :prefecture_id, "配送元", class: 'prefecture__title'
+        %span.form-require 必須
+        .item-prefecture-main
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+      .item-days
+        = f.label :days, "配送までの日数", class: 'item-days__title'
+        %span.form-require 必須
+        .item-days-main
+          = f.select :days, [["1〜2日で発送"],["2〜3日で発送"],["4〜7日で発送"]], class: 'item-prefecture-main__main', class: '.item-days-main__main'
+      .actions
+        = f.submit "出品", class: 'actions__submit'
+    
