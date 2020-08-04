@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :create, :show, :destroy] 
 
-  resources :purchases do
+  resources :items do
     collection do
       get "buy"
       post "pay"
