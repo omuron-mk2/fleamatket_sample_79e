@@ -11,9 +11,7 @@
 | first_name | string | null:false |
 | last_name_kana |string | null:false |
 | first_name_kana | string | null:false |
-| birth_year | integer | null:false |
-| birth_month | integer | null:false |
-| birth_day | date | null:false |
+| birth_date | date | null:false |
 | tel_number | string ||
 | profile_text | text ||
 | profile_image | string ||
@@ -25,9 +23,6 @@
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item", dependent: :destroy
 - has_many :cards, dependent: :destroy
 - has_one :address, dependent: :destroy
-- has_many :purchases
-- has_many :purchases_of_seller, class_name: 'Purchase', foreign_key: 'seller_id'
-- has_many :purchases_of_buyer, class_name: 'Purchase', foreign_key: 'buyer_id'
 
 ## addresses テーブル
 
@@ -62,8 +57,8 @@
 | delivery_fee | string | null:false |
 | prefecture_id(active_hash) | integer |null: false|
 | days | string | null:false |
-| seller_id | integer | null:false, foreign_key: true |
-| buyer_id | integer | null:false, foreign_key: true |
+| seller | references | null:false, foreign_key: true |
+| buyer | references | foreign_key: true |
 
 ### Association
 
@@ -72,7 +67,6 @@
 - belongs_to :category
 - belongs_to :brand
 - has_many :images, dependent: :destroy
-- has_one :purchase
 
 
 ## images テーブル
@@ -122,21 +116,3 @@
 ### Association
 
 - belongs_to :user
-- has_many :purchases
-
-## purchasesテーブル
-
-| Column   | Type   | Options    |
-| -------- | ------ | ---------- |
-| buyer_id | integer | foreign_key: true |
-| seller_id | integer | null: false, foreign_key: true |
-| item | references | null: false, foreign_key: true |
-| card | references | null: false, foreign_key: true |
-
-
-### Association
-
-- belongs_to :card
-- belongs_to :item
-- belongs_to :seller, class_name: "User", foreign_key:"seller_id"
-- belongs_to :buyer, class_name: "User", foreign_key: "buyer_id"

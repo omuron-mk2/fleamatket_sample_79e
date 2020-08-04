@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get "buy"
+      post "pay"
     end
   end
   resources :cards 
@@ -26,12 +28,6 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :create, :show, :destroy] 
 
-  resources :purchases do
-    collection do
-      get "buy"
-      post "pay"
-    end
-  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :details, only: :show 
 end
