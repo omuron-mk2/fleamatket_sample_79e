@@ -26,8 +26,8 @@
       = link_to "/users/addresses/#{current_user.id}/edit", class: "Side_bar__List__Item" do
         送り先情報の変更
         %i.fas.fa-chevron-right
-      = link_to "#", class: "Side_bar__List__Item" do
-        お支払い方法
+      = link_to "/cards/new", class: "Side_bar__List__Item" do
+        お支払い方法 (カード登録・削除)
         %i.fas.fa-chevron-right
       = link_to "/users/resistrations/#{current_user.id}", class: "Side_bar__List__Item" do
         本人情報
