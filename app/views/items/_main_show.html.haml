@@ -78,7 +78,7 @@
         - if user_signed_in? && current_user.id == @item.seller_id
           .btnBox
             = link_to "編集する", "#", class: "editBtn"
-            = link_to "削除する", "/items/#{@item.id}", method: :delete,data: { confirm: "削除しますか？" }, class: "deleteBtn"
+            = link_to "削除する", item_path(@item.id), method: :delete,data: { confirm: "削除しますか？" }, class: "deleteBtn"
         .commentBox
           %ul.commentBox__commentContents
           %form.commentBox__newComment 
