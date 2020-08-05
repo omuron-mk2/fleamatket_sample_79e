@@ -28,6 +28,9 @@
           width: 560px;
           align-items: center;
           margin: 0 auto;
+          img {
+            object-fit: cover;
+          }
           ul {
             object-fit: cover;
           }

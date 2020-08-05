@@ -4,58 +4,64 @@
     .contentRight
       .topContent
         .itemBox
-          %h2.itemBox__name 商品名
+          %h2.itemBox__name
+            = @item.name
           .itemBox__body 
             %ul.itemBox__body__wholeImage
               %li.itemBox__body__wholeImage__row
-                = image_tag "a001.png", size: "550x440"
+                = image_tag @image.src_url, size: "550x440"
                 %ul.itemBox__body__wholeImage__row__subImages
-                  %li
-                    = image_tag "a001.png", size: "140x90"
-                  %li
-                    = image_tag "a001.png", size: "140x90"
-                  %li
-                    = image_tag "a001.png", size: "140x90"
+                  - @images.each do |thumbnail|
+                    %li.fade-list
+                      = image_tag thumbnail.src_url, class: "fade-list__image"
           .itemBox__price
-            %span ¥1,500
+            = "¥#{@item.price}"
             .itemBox__price__complement
               （税込）送料込み
           .itemDetail
-            まあなんて美味しいカレーなんでしょう！
+            = @item.text
           .table 
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td 1 
+                  %td 
+                    = @item.seller.nickname
                   /# 後にtdにlink_to
                 %tr
                   %th カテゴリー
-                  %td 2
+                  %td 
+                    = @category_parent.name
+                    = @category_child.name
+                    = @category_grandchild.name
+                    -# = link_to "#{@category_parent.name}", parent_category_path(id: @category_parent)
+                    -# = link_to "#{@category_child.name}", child_category_path(id: @category_child)
+                    -# = link_to "#{@category_grandchild.name}", grandchild_category_path(id: @category_grandchild)
                   /# 後にtdにlink_to
                 %tr
                   %th ブランド
-                  %td 3
-                  /# 後にtdにlink_to
-                %tr
-                  %th 商品のサイズ
-                  %td 4
+                  %td 
+                    = @brand
                   /# 後にtdにlink_to
                 %tr
                   %th 商品の状態
-                  %td 5
+                  %td 
+                    = @item.condition
                   /# 後にtdにlink_to
                 %tr
                   %th 配送料の負担
-                  %td 6
+                  %td 
+                    = @item.delivery_fee
                   /# 後にtdにlink_to
                 %tr
                   %th 発送元地域
-                  %td 7
+                  %td 
+                    = @prefecture
                   /# 後にtdにlink_to
                 %tr
                   %th 発送日の目安
-                  %td 8
+                  %td 
+                    = @item.days
                   /# 後にtdにlink_to
           .optionBtn
             %ul

@@ -3,6 +3,18 @@ class ItemsController < ApplicationController
   def index
   end
 
+  def show
+    @item = Item.find_by(id:params[:id])
+    @prefecture = Prefecture.find(@item.prefecture_id).name
+    @brand = Brand.find(@item.brand_id).name
+    @category_parent = Category.find(@item.category_id).parent.parent
+    @category_child = Category.find(@item.category_id).parent
+    @category_grandchild = Category.find(@item.category_id)
+    @images = @item.images
+    @image = @images[0]
+  end
+
+
   def new
     @item = Item.new
     @item.build_brand

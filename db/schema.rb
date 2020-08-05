@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "card_number", null: false
-    t.integer "customer_id"
+    t.string "card_number", null: false
+    t.string "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
     t.text "text", null: false
     t.string "price", null: false
     t.string "condition", null: false
-    t.integer "delivery_fee", null: false
+    t.string "delivery_fee", null: false
     t.integer "prefecture_id", null: false
     t.string "days", null: false
     t.integer "buyer_id"
@@ -96,16 +96,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_005215) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    tt.string "send_last_name", null: false
-    t.string "send_first_name", null: false
-    t.string "send_last_name_kana", null: false
-    t.string "send_first_name_kana", null: false
-    t.integer "postal_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.integer "house_number", null: false
-    t.integer "room_number"
-    t.integer "tel_number", null: false
+    t.string "tel_number"
     t.text "profile_text"
     t.string "profile_image_id"
     t.string "reset_password_token"
