@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   require "payjp"
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
   end
@@ -16,6 +16,15 @@ class ItemsController < ApplicationController
     @image = @images[0]
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path
+      flash[:notice] = '削除しました。'
+    else 
+      render :show, alert: "削除できませんでした。"
+    end
+  end
 
   def new
     @item = Item.new
