@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
 
-    before_action :basic_auth
+    # before_action :basic_auth
 
   private
 

@@ -60,6 +60,19 @@
         font-size: 16px;
       }
     }
+    .buyBtn {
+      width: 60%;
+      display: block;
+      margin: 16px auto;
+      background: #3CCACE;
+      line-height: 56px;
+      text-align: center;
+      font-weight: 600;
+      transition: all ease-out .3s;
+      border-radius: 100px;
+      color: #fff;
+      text-decoration: none;
+    }
     .table {
       margin-bottom: 20px;
       table {
@@ -125,6 +138,38 @@
           -webkit-font-smoothing: antialiased;
         }
       }
+    }
+  }
+  .btnBox {
+    padding: 24px;
+    background-color: #fff;
+    margin: 10px 0;
+    text-align: center;
+    .editBtn {
+      margin: 16px auto;
+      background: #3CCACE;
+      line-height: 56px;
+      text-align: center;
+      font-weight: 600;
+      transition: all ease-out .3s;
+      border-radius: 100px;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      width: 60%;
+    }
+    .deleteBtn {
+      margin: 16px auto;
+      background: red;
+      line-height: 56px;
+      text-align: center;
+      font-weight: 600;
+      transition: all ease-out .3s;
+      border-radius: 100px;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      width: 60%;
     }
   }
   .commentBox {
