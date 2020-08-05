@@ -15,9 +15,12 @@
                     %li.fade-list
                       = image_tag thumbnail.src_url, class: "fade-list__image"
           .itemBox__price
-            = "¥#{@item.price}"
+            %span
+              = "¥#{@item.price}"
             .itemBox__price__complement
-              （税込）送料込み
+              （税込）
+          - unless user_signed_in? && current_user.id == @item.seller_id
+            = link_to "購入画面に進む", "#", class: "buyBtn"
           .itemDetail
             = @item.text
           .table 
@@ -72,6 +75,10 @@
                 %a
                   %i.fa.fa-flag.likeIcon 不適切な商品の通報
                   /#後にidとリンク付与
+        - if user_signed_in? && current_user.id == @item.seller_id
+          .btnBox
+            = link_to "編集する", "#", class: "editBtn"
+            = link_to "削除する", item_path(@item.id), method: :delete,data: { confirm: "削除しますか？" }, class: "deleteBtn"
         .commentBox
           %ul.commentBox__commentContents
           %form.commentBox__newComment 
