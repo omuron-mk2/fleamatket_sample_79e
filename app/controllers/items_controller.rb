@@ -16,6 +16,30 @@ class ItemsController < ApplicationController
     @image = @images[0]
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    # @category_parent = Category.find(@item.category_id).parent.parent
+    # @category_child = Category.find(@item.category_id).parent
+    # @category_grandchild = Category.find(@item.category_id)
+    @brand = Brand.find(@item.brand_id).name
+    @images = @item.images
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @item}
+    # end
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      redirect_to item_path(item.id)
+      flash[:notice] = '編集しました。'
+    else 
+      redirect_to action: "edit"
+      flash[:alert] = '編集できませんでした。'
+    end
+  end
+
   def destroy
     item = Item.find(params[:id])
     if item.destroy
