@@ -50,10 +50,9 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    # 購入する商品を引っ張ってきます。
-    # @item = item.find(params[:item_id])
-    # itemの持つたくさんのimagesの中から最初のものだけとる(書き方あってる？)。
-    # @images = @product.images.first
+    @item = Item.find_by(id:params[:id])
+    @images = @item.images
+    @image = @images[0]
     if user_signed_in?
       card = Card.find_by(user_id: current_user.id)
       if card.present?
@@ -69,15 +68,16 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    # @item = Item.find(params[:item_id]) <= "どのitemを買うのかidで指定する,buyもなのでbefore_actionする"
+    @item = Item.find_by(id:params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     @card = Card.find_by(user_id: current_user.id)
     charge = Payjp::Charge.create(
-    # amount: @item.price, <= "itemsの値段"
-    amount: 500,
+    amount: @item.price,
     customer: Payjp::Customer.retrieve(@card.customer_id),
     currency: 'jpy'
     )
+    @buyer = Item.find_by(id:params[:id])
+    @buyer.update( buyer_id: current_user.id)
   end
 
   private
