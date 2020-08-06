@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    @item = Item.find_by(id:params[:id])
+    @item = Item.find(params[:id])
     @images = @item.images
     @image = @images[0]
     if user_signed_in?
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @item = Item.find_by(id:params[:id])
+    @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     @card = Card.find_by(user_id: current_user.id)
     charge = Payjp::Charge.create(
@@ -76,7 +76,7 @@ class ItemsController < ApplicationController
     customer: Payjp::Customer.retrieve(@card.customer_id),
     currency: 'jpy'
     )
-    @buyer = Item.find_by(id:params[:id])
+    @buyer = Item.find(params[:id])
     @buyer.update( buyer_id: current_user.id)
   end
 
