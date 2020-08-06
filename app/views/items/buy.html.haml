@@ -4,21 +4,19 @@
     .Purchase__title
       購入内容の確認
     .Purchase__info
-      -# "item.imagesを記述"
-      = image_tag "a001.png", size: "",class:"Purchase__info--image"
+      = image_tag @image.src_url, size: "270x180"
       .Purchase__info--name
         %p ♠︎商品名
-        %h2 カレーライス
-        -# = "#{@item.name}" <= "商品名を記述"
+        %h2
+        = @item.name
         %p ♣️値段
-        %h2 500円
-        -# = "#{@item.price}" + "円" <= "値段を記述"
+        %h2
+        = "#{@item.price} 円"
     .Purchase__money
       .Purchase__money--name
         支払い金額
       .Purchase__money--price
-        500円
-        -# = "#{@item.price}" + "円" <= "値段を記述する"
+        = "¥#{@item.price} 円"
     .PurchaseCard
       %h1 クレジットカード情報
       .PurchaseCard__info
@@ -29,5 +27,5 @@
         - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
         = exp_month + " / " + exp_year
     .Purchase__btn
-      = link_to "登録クレジットカードで購入する", pay_items_path ,method: :post ,class: "btn"
+      = link_to "登録クレジットカードで購入する", pay_item_path(@item.id) ,method: :post ,class: "btn"
 

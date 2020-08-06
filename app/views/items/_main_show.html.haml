@@ -9,6 +9,10 @@
           .itemBox__body 
             %ul.itemBox__body__wholeImage
               %li.itemBox__body__wholeImage__row
+                - if @item.buyer_id.present? 
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner
+                      SOLD
                 = image_tag @image.src_url, size: "550x440"
                 %ul.itemBox__body__wholeImage__row__subImages
                   - @images.each do |thumbnail|
@@ -20,7 +24,8 @@
             .itemBox__price__complement
               （税込）
           - unless user_signed_in? && current_user.id == @item.seller_id
-            = link_to "購入画面に進む", "#", class: "buyBtn"
+            - unless @item.buyer_id.present?
+              = link_to "購入画面に進む", buy_item_path(@item.id), class: "buyBtn"
           .itemDetail
             = @item.text
           .table 
@@ -95,3 +100,4 @@
         %li.back >後ろの商品
       .sameCategory
         レディースをもっと見る 
+        
