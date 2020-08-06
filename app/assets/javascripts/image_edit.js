@@ -1,5 +1,4 @@
 $(function(){
-  console.log("aiueo")
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"

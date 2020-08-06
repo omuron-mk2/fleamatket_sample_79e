@@ -1,32 +1,19 @@
 class ItemsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!, except: [:index, :show]
-
+  before_action :set_item, only: [:show, :edit]
   def index
   end
 
   def show
-    @item = Item.find_by(id:params[:id])
     @prefecture = Prefecture.find(@item.prefecture_id).name
-    @brand = Brand.find(@item.brand_id).name
     @category_parent = Category.find(@item.category_id).parent.parent
     @category_child = Category.find(@item.category_id).parent
     @category_grandchild = Category.find(@item.category_id)
-    @images = @item.images
     @image = @images[0]
   end
 
   def edit
-    @item = Item.find(params[:id])
-    # @category_parent = Category.find(@item.category_id).parent.parent
-    # @category_child = Category.find(@item.category_id).parent
-    # @category_grandchild = Category.find(@item.category_id)
-    @brand = Brand.find(@item.brand_id).name
-    @images = @item.images
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @item}
-    # end
   end
 
   def update
@@ -105,6 +92,11 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_item
+    @item = Item.find(params[:id])
+    @brand = Brand.find(@item.brand_id).name
+    @images = @item.images
+  end
 
   def item_params
     params.require(:item).permit(:name, :text, :price, :condition, :delivery_fee, :days, :status, :category_id, :prefecture_id, images_attributes: [:src, :_destroy, :id],
