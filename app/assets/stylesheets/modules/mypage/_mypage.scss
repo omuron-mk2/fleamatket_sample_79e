@@ -36,7 +36,7 @@
   }
   .Mypage{
     height: 100%;
-    width: 100%;
+    width: 720px;
     .User_info{
       height: 160px;
       width: 100%;
@@ -51,17 +51,11 @@
         border-radius: 50%;
         object-fit: cover;
       }
-      &__Center{
+      &__Nickname{
         width: 80px;
         margin: auto 20px;
         text-align: center;
-        &__Name{
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-        &__Number{
-          font-size: 14px;
-        }
+        font-weight: bold;
       }
       &__Text{
         width: 380px;
@@ -73,10 +67,11 @@
       width: 100%;
       background-color: white;
       &__Title{
-        height: 65px;
+        height: 70px;
         width: 100%;
         font-weight: bold;
-        padding: 20px;
+        line-height: 70px;
+        text-align: center;
       }
       &__Tabs{
         height: 65px;;
@@ -86,6 +81,7 @@
           height: 100%;
           width: calc(100% / 3);
           font-weight: bold;
+          font-size: 15px;
           text-align: center;
         }
         .User_item{
@@ -101,15 +97,45 @@
       }
       &__Contents{
         &__Content{
-          color: #C4C4C4;
           text-align: center;
-          padding: 30px;
+          padding: 15px 30px;
           display: none;
           &__Image{
             margin-top: 10px;
           }
           &__Text{
+            color: #C4C4C4;
             margin: 15px;
+          }
+          .User_items_box{
+            display: block;
+            display: flex;
+            flex-wrap: wrap;
+            .User_item_box{
+              margin: 15px;
+              transition: color 300ms, border 300ms;
+              &__Content{
+                width: 188px;
+                height: 260px;
+                &:hover{
+                  border: solid 1px #0085C9;
+                }
+              }
+              img{
+                object-fit: cover;
+              }
+              &__Text{
+                &__Name{
+                  text-align: center;
+                  margin: 5px;
+                }
+                &__Price{
+                  font-weight: bold;
+                  font-size: 14px;
+                  text-align: center;
+                }
+              }
+            }
           }
         }
         .Show{
