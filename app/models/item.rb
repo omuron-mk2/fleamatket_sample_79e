@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :category
   validates :name, presence: true
   validates :text, presence: true
-  validates :price, presence: true,    length: { in: 1..10 }  
+  validates :price, presence: true,    length: { in: 3..7 }  
   validates :category_id, presence: true
   validates :condition, presence: true
   validates :delivery_fee, presence: true
