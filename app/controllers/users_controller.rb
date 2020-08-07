@@ -4,11 +4,6 @@ class UsersController < ApplicationController
     @selling_items = @user.selling_items.order("created_at DESC")
     @sold_items = @user.sold_items.order("created_at DESC")
     @bought_items = @user.bought_items.order("created_at DESC")
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @user}
-    end
   end
 
   def create
