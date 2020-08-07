@@ -12,18 +12,24 @@
         = simple_format(@user.profile_text)
     .User_items
       .User_items__Title
-        購入した商品
+        = "#{@user.nickname}さんの商品一覧"
       %ul.User_items__Tabs
-        %li.User_items__Tabs__Tab--P
-          = link_to "取引中", "#", class: "User_item Text Active"
-        %li.User_items__Tabs__Tab--P
-          = link_to "過去の取引", "#", class: "User_item Text"
+        %li.User_items__Tabs__Tab
+          = link_to "出品中", "#", class: "User_item Text Active"
+        %li.User_items__Tabs__Tab
+          = link_to "売却済み", "#", class: "User_item Text"
+        %li.User_items__Tabs__Tab
+          = link_to "購入済み", "#", class: "User_item Text"
       %ul.User_items__Contents
         %li.User_items__Contents__Content.Show
           = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
           %br
-          .User_items__Contents__Content__Text 取引中の商品がありません
+          .User_items__Contents__Content__Text 出品中の商品がありません
         %li.User_items__Contents__Content
           = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
           %br
-          .User_items__Contents__Content__Text 過去に取引した商品がありません
+          .User_items__Contents__Content__Text 売却済みの商品がありません
+        %li.User_items__Contents__Content
+          = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
+          %br
+          .User_items__Contents__Content__Text 購入済みの商品がありません

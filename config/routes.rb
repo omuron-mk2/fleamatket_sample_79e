@@ -22,11 +22,8 @@ Rails.application.routes.draw do
       post "pay"
     end
   end
-  resources :cards 
 
   resources :users, only: [:show, :create, :edit, :update]
-  get '/users/:id/exhibition', to: 'users#exhibition'
-  get '/users/:id/purchase', to: 'users#purchase'
 
   resources :cards, only: [:new, :create, :show, :destroy] 
 
