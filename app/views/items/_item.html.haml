@@ -1,0 +1,19 @@
+.itemList__content
+  = link_to item_path(item.id) do
+    .itemContent
+      %figure.itemList--img
+        = image_tag item.images[0].src_url, size: ""
+        - if item.buyer_id.present?
+          .items-box_photo__sold
+            .items-box_photo__sold__inner
+              SOLD
+      .itemList--body
+        %h3.itemName 
+          = item.name 
+        .itemDetail
+          %ul
+            %li
+              = "¥#{item.price}"
+            %li 
+              %i.fa.fa-star.likeIcon 0
+          %p （税込）

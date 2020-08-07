@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
+    @items_all = Item.all.order("created_at DESC")
+    @items = @items_all [0..11]
   end
 
   def show
