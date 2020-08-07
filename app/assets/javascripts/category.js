@@ -24,7 +24,6 @@ $(function(){
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 <select>
-                                <i class='fas fa-chevron-down item-category__fas'></i>
                               </div>
                             </div>`;
     $('.item-category__main').append(grandchildSelectHtml);

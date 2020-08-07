@@ -49,8 +49,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash[:notice] = '送り先情報を変更しました。'
       redirect_to user_path(current_user.id)
     else
-      flash.now[:alert] = '送り先情報を変更できませんでした。'
-      render :edit_address
+      flash[:alert] = '送り先情報を変更できませんでした。'
+      redirect_to "/users/addresses/#{current_user.id}/edit"
     end
   end
 
