@@ -590,7 +590,7 @@ select{
 
 #previews{
   width: 30vw;
-  height: 20vh;
+  flex-wrap: wrap;
   display: flex;
   background-color: #efebeb;
   border: black 1px solid;
