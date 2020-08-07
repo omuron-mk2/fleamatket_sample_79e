@@ -9,11 +9,11 @@
           .itemBox__body 
             %ul.itemBox__body__wholeImage
               %li.itemBox__body__wholeImage__row
-                - if @item.buyer_id.present? 
+                = image_tag @image.src_url, size: "550x440", class: "main__image"
+                - if @item.buyer_id.present?
                   .items-box_photo__sold
                     .items-box_photo__sold__inner
                       SOLD
-                = image_tag @image.src_url, size: "550x440"
                 %ul.itemBox__body__wholeImage__row__subImages
                   - @images.each do |thumbnail|
                     %li.fade-list
@@ -26,6 +26,7 @@
           - unless user_signed_in? && current_user.id == @item.seller_id
             - unless @item.buyer_id.present?
               = link_to "購入画面に進む", buy_item_path(@item.id), class: "buyBtn"
+          【商品説明】
           .itemDetail
             = @item.text
           .table 
