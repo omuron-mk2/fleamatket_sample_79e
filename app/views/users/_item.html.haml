@@ -1,5 +1,5 @@
 .User_item_box
-  = link_to "item_path(item.id)", class: "Text" do
+  = link_to item_path(item.id), class: "Text" do
     .User_item_box__Content
       = image_tag item.images[0].src_url, size: "188x188"
       .User_item_box__Text
