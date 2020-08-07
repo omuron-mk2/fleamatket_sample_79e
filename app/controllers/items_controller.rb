@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
   end
 
@@ -10,16 +10,19 @@ class ItemsController < ApplicationController
     @category_parent = Category.find(@item.category_id).parent.parent
     @category_child = Category.find(@item.category_id).parent
     @category_grandchild = Category.find(@item.category_id)
+    @images = @item.images
     @image = @images[0]
+    @brand = Brand.find(@item.brand_id).name
   end
 
   def edit
+    @brand = Brand.find(@item.brand_id).name
+    @images = @item.images
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
-      redirect_to item_path(item.id)
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
       flash[:notice] = '編集しました。'
     else 
       redirect_to action: "edit"
@@ -28,8 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.destroy
+    if @item.destroy
       redirect_to root_path
       flash[:notice] = '削除しました。'
     else 
@@ -94,8 +96,6 @@ class ItemsController < ApplicationController
   private
   def set_item
     @item = Item.find(params[:id])
-    @brand = Brand.find(@item.brand_id).name
-    @images = @item.images
   end
 
   def item_params
