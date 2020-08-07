@@ -1,24 +1,37 @@
 class ItemsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!, except: [:index, :show]
-
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
   end
 
   def show
-    @item = Item.find_by(id:params[:id])
     @prefecture = Prefecture.find(@item.prefecture_id).name
-    @brand = Brand.find(@item.brand_id).name
     @category_parent = Category.find(@item.category_id).parent.parent
     @category_child = Category.find(@item.category_id).parent
     @category_grandchild = Category.find(@item.category_id)
     @images = @item.images
     @image = @images[0]
+    @brand = Brand.find(@item.brand_id).name
+  end
+
+  def edit
+    @brand = Brand.find(@item.brand_id).name
+    @images = @item.images
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
+      flash[:notice] = '編集しました。'
+    else 
+      redirect_to action: "edit"
+      flash[:alert] = '編集できませんでした。'
+    end
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.destroy
+    if @item.destroy
       redirect_to root_path
       flash[:notice] = '削除しました。'
     else 
@@ -81,6 +94,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:name, :text, :price, :condition, :delivery_fee, :days, :status, :category_id, :prefecture_id, images_attributes: [:src, :_destroy, :id],
