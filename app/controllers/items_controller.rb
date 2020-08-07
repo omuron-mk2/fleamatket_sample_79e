@@ -49,8 +49,10 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
+      flash[:notice] = '投稿できました。'
     else
-      render :new, alert: "入力に不備があります"
+      redirect_to action: "new"
+      flash[:alert] = '入力に不備があります。'
     end
   end
 

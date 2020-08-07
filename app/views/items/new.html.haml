@@ -34,6 +34,8 @@
       .item-price
         = f.label :price, "価格", class: 'item-price__title'
         %span.form-require 必須
+        .items-price-text
+          1円~9999999999円
         .item-price-main
           .item-price-main__text ¥
           = f.number_field :price, autofocus: true, class: 'item-price-main__main'
