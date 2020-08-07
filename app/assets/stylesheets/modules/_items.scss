@@ -329,16 +329,21 @@
 }
 
 .itemList--body {
+  width: 220px;
   background-color: white;
   color: #333;
   padding: 16px;
 }
 
 .itemName {
+  height: 40px;
   font-size: 20px;
   overflow: hidden;
   line-height: 1.5;
   text-align: left;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .itemDetail {
