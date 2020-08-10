@@ -12,7 +12,7 @@ $(function(){
     };
 
     Payjp.createToken(card,function(status,response){
-      form.find("input[type=submit]").prop("disabled", true);
+      form.find("input[type=submit]").prop("disabled", false);
       if(status == 200){
         $("#card_number").removeAttr("name");
         $("#cvc").removeAttr("name");
