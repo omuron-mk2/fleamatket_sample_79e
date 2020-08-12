@@ -3,12 +3,9 @@
     .main-header
       .header-icon
         = link_to image_tag("logo.png", size: "150x40"), root_path
-      .search-box
-        %input.class-serch__text{tpe: "text",  placeholder: "キーワードから探す"}
-        .search-submit
-          %label{class: "input-box__image"}
-            = link_to image_tag "icon-search 1.png", size: "20x20"
-            %input.class-name__submit{type: "submit" ,value: "POST"}
+      = form_with(url: search_items_path, local: true, method: :get, class: "search-box") do |form|
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "class-serch__text"
+        = form.submit "検索",class: 'search-submit', type: "submit"
     .header-nav
       .left-list
         .left-list__category

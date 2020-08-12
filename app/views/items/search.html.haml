@@ -1,0 +1,8 @@
+.main__pickupCategoly
+  %h2.head 検索結果
+  .itemBox
+    .itemLists
+      .itemList
+        - @items.each do |item|
+          = render partial: "item", locals: { item: item }
+      
