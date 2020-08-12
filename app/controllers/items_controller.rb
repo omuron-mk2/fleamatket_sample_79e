@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   require "payjp"
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @items_all = Item.all.order("created_at DESC")
@@ -95,6 +95,10 @@ class ItemsController < ApplicationController
     )
     @buyer = Item.find(params[:id])
     @buyer.update( buyer_id: current_user.id)
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
   end
 
   private
