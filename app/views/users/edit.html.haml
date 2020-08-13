@@ -1,18 +1,19 @@
 .Mypage_wrapper.Text
-  = render "side_bar"
+  .Mypage_wrapper__Content
+    = render "side_bar"
 
-  .Main
-    .Main__Title プロフィールの編集
-    .Main__Form
-      = form_for(current_user) do |f|
-        = attachment_image_tag @user, :profile_image, fallback:"no-profile-image.jpg", class: "Image_prev", id: :img_prev
-        = f.label :profile_image, "画像を選択", class: "Btn_image", id: :profile_img
-        = f.file_field :profile_image, style: "display:none;"
-        .Main__Form__Field
-          = f.label "ニックネーム", class: "Label"
-          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "Form_box"
-        .Main__Form__Field
-          = f.label "自己紹介", class: "Label"
-          = f.text_area :profile_text, rows: "6", class: "Form_box--Large"
-        
-        = f.submit "変更する", class: "Btn"
+    .Main
+      .Main__Title プロフィールの編集
+      .Main__Form
+        = form_for(current_user) do |f|
+          = attachment_image_tag @user, :profile_image, fallback:"no-profile-image.jpg", class: "Image_prev", id: :img_prev
+          = f.label :profile_image, "画像を選択", class: "Btn_image", id: :profile_img
+          = f.file_field :profile_image, style: "display:none;"
+          .Main__Form__Field
+            = f.label "ニックネーム", class: "Label"
+            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "Form_box"
+          .Main__Form__Field
+            = f.label "自己紹介", class: "Label"
+            = f.text_area :profile_text, rows: "6", class: "Form_box--Large"
+          
+          = f.submit "変更する", class: "Btn"

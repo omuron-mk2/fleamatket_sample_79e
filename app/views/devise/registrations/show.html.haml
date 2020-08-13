@@ -1,61 +1,60 @@
 .Mypage_wrapper.Text
-  = render "users/side_bar"
+  .Mypage_wrapper__Content
+    = render "users/side_bar"
 
-  .Main
-    .Main__Title 本人情報
-    .Main__Form
-      .Confirmation_field
-        .Confirmation_field__label 氏名
-        .Text_s
-          = @user.last_name
-          = @user.first_name
-      .Confirmation_field
-        .Confirmation_field__label 氏名カナ
-        .Text_s
-          = @user.last_name_kana
-          = @user.first_name_kana
-      .Confirmation_field
-        .Confirmation_field__label メールアドレス
-        .Text_s
-          = @user.email
-      .Confirmation_field
-        .Confirmation_field__label 生年月日
-        .Text_s
-          = I18n.localize(@user.birth_date)
-      .Confirmation_field
-        .Confirmation_field__label 電話番号
-        .Text_s
-          = @user.tel_number
-      .Confirmation_field
-        .Confirmation_field__label 送り先氏名
-        .Text_s
-          = @address.send_last_name
-          = @address.send_first_name
-      .Confirmation_field
-        .Confirmation_field__label 送り先氏名カナ
-        .Text_s
-          = @address.send_last_name_kana
-          = @address.send_first_name_kana
-      .Confirmation_field
-        .Confirmation_field__label 郵便番号
-        .Text_s
-          %span 〒
-          = @address.postal_code
-      .Confirmation_field
-        .Confirmation_field__label 都道府県
-        .Text_s
-          = @address.prefecture.name
-      .Confirmation_field
-        .Confirmation_field__label 市町村
-        .Text_s
-          = @address.city
-      .Confirmation_field
-        .Confirmation_field__label 番地
-        .Text_s
-          = @address.house_number
-      .Confirmation_field
-        .Confirmation_field__label 部屋番号
-        .Text_s
-          = @address.room_number
-
-
+    .Main
+      .Main__Title 本人情報
+      .Main__Form
+        .Confirmation_field
+          .Confirmation_field__label 氏名
+          .Text_s
+            = @user.last_name
+            = @user.first_name
+        .Confirmation_field
+          .Confirmation_field__label 氏名カナ
+          .Text_s
+            = @user.last_name_kana
+            = @user.first_name_kana
+        .Confirmation_field
+          .Confirmation_field__label メールアドレス
+          .Text_s
+            = @user.email
+        .Confirmation_field
+          .Confirmation_field__label 生年月日
+          .Text_s
+            = I18n.localize(@user.birth_date)
+        .Confirmation_field
+          .Confirmation_field__label 電話番号
+          .Text_s
+            = @user.tel_number
+        .Confirmation_field
+          .Confirmation_field__label 送り先氏名
+          .Text_s
+            = @address.send_last_name
+            = @address.send_first_name
+        .Confirmation_field
+          .Confirmation_field__label 送り先氏名カナ
+          .Text_s
+            = @address.send_last_name_kana
+            = @address.send_first_name_kana
+        .Confirmation_field
+          .Confirmation_field__label 郵便番号
+          .Text_s
+            %span 〒
+            = @address.postal_code
+        .Confirmation_field
+          .Confirmation_field__label 都道府県
+          .Text_s
+            = @address.prefecture.name
+        .Confirmation_field
+          .Confirmation_field__label 市町村
+          .Text_s
+            = @address.city
+        .Confirmation_field
+          .Confirmation_field__label 番地
+          .Text_s
+            = @address.house_number
+        .Confirmation_field
+          .Confirmation_field__label 部屋番号
+          .Text_s
+            = @address.room_number
