@@ -9,14 +9,3 @@
         - else
           - @items.each do |item|
             = render partial: "item", locals: { item: item }
-
-
-            -# - if @sold_items.empty?
-            -#   = image_tag "logo_gray.jpg", width: "100px", class: "User_items__Contents__Content__Image"
-            -#   %br
-            -#   .User_items__Contents__Content__Text 売却済みの商品がありません
-            -# - else
-            -#   .User_items_box
-            -#     - @sold_items.each do |item|
-            -#       = render partial: "item", locals: { item: item }
-      
