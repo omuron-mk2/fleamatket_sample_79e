@@ -51,7 +51,6 @@
           .listing-select-wrapper
             .listing-select-wrapper__box
               = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "---"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-              %i.fas.fa-chevron-down.item-category__fas
       .form-group.brand--container
         = f.fields_for :brand do |brand|
           = brand.label "ブランド", class: 'item-brand'

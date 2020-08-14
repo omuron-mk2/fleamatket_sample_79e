@@ -5,141 +5,147 @@
 .Mypage_wrapper {
   width: 100vw;
   background-color: #f5f5f5;
-  padding: 40px 200px;
-  display: flex;
-  .Side_bar{
-    margin-right: 40px;
-    &__Head{
-      font-weight: bold;
-      margin-bottom: 5px;
+  padding: 40px;
+  &__Content{
+    width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    .Side_bar{
+      margin-right: 40px;
+      &__Head{
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      &__List{
+        margin-bottom: 30px;
+        &__Item{
+          height: 48px;
+          width: 280px;
+          font-size: 14px;
+          line-height: 16px;
+          background-color: white;
+          color: #333333;
+          text-decoration: none;
+          display: block;
+          padding: 16px;
+          border-bottom: solid 0.5px #EAEAEA;
+          display: flex;
+          justify-content: space-between;
+          .fa-chevron-right{
+            color: #C4C4C4;
+          }
+        }
+      }
     }
-    &__List{
-      margin-bottom: 30px;
-      &__Item{
-        height: 48px;
-        width: 280px;
-        font-size: 14px;
-        line-height: 16px;
+    .Mypage{
+      height: 100%;
+      width: 720px;
+      .User_info{
+        height: 160px;
+        width: 100%;
         background-color: white;
-        color: #333333;
-        text-decoration: none;
-        display: block;
-        padding: 16px;
-        border-bottom: solid 0.5px #EAEAEA;
+        padding: 30px 50px;
+        margin-bottom: 40px;
         display: flex;
         justify-content: space-between;
-        .fa-chevron-right{
-          color: #C4C4C4;
+        &__Image{
+          height: 100px;
+          width: 100px;
+          border-radius: 50%;
+          object-fit: cover;
         }
-      }
-    }
-  }
-  .Mypage{
-    height: 100%;
-    width: 720px;
-    .User_info{
-      height: 160px;
-      width: 100%;
-      background-color: white;
-      padding: 30px 50px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
-      &__Image{
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-      &__Nickname{
-        width: 80px;
-        margin: auto 20px;
-        text-align: center;
-        font-weight: bold;
-      }
-      &__Text{
-        width: 380px;
-        font-size: 14px;
-        margin: auto 0;
-      }
-    }
-    .User_items{
-      width: 100%;
-      background-color: white;
-      &__Title{
-        height: 70px;
-        width: 100%;
-        font-weight: bold;
-        line-height: 70px;
-        text-align: center;
-      }
-      &__Tabs{
-        height: 65px;;
-        width: 100%;
-        display: flex;
-        &__Tab{
-          height: 100%;
-          width: calc(100% / 3);
+        &__Nickname{
+          width: 80px;
+          margin: auto 20px;
+          text-align: center;
           font-weight: bold;
-          font-size: 15px;
-          text-align: center;
         }
-        .User_item{
-          height: 65px;
-          background-color: #EAEAEA;
-          padding: 20px;
-          display: block;
-        }
-        .Active{
-          background-color: white;
-          border-top: solid 2px #3CCACE;
+        &__Text{
+          width: 380px;
+          font-size: 14px;
+          margin: auto 0;
         }
       }
-      &__Contents{
-        &__Content{
+      .User_items{
+        width: 100%;
+        background-color: white;
+        &__Title{
+          height: 70px;
+          width: 100%;
+          font-weight: bold;
+          line-height: 70px;
           text-align: center;
-          padding: 15px 30px;
-          display: none;
-          &__Image{
-            margin-top: 10px;
+        }
+        &__Tabs{
+          height: 65px;;
+          width: 100%;
+          display: flex;
+          &__Tab{
+            height: 100%;
+            width: calc(100% / 3);
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
           }
-          &__Text{
-            color: #C4C4C4;
-            margin: 15px;
-          }
-          .User_items_box{
+          .User_item{
+            height: 65px;
+            background-color: #EAEAEA;
+            padding: 20px;
             display: block;
-            display: flex;
-            flex-wrap: wrap;
-            .User_item_box{
+          }
+          .Active{
+            background-color: white;
+            border-top: solid 2px #3CCACE;
+          }
+        }
+        &__Contents{
+          &__Content{
+            text-align: center;
+            padding: 15px 30px;
+            display: none;
+            &__Image{
+              margin-top: 10px;
+            }
+            &__Text{
+              color: #C4C4C4;
               margin: 15px;
-              transition: color 300ms, border 300ms;
-              &__Content{
-                width: 190px;
-                height: 260px;
-                &:hover{
-                  border: solid 1px #0085C9;
+            }
+            .User_items_box{
+              display: block;
+              display: flex;
+              flex-wrap: wrap;
+              .User_item_box{
+                margin: 15px;
+                &__Content{
+                  width: 190px;
+                  height: 260px;
+                  &:hover{
+                    outline: solid 1px #0085C9;
+                  }
                 }
-              }
-              img{
-                object-fit: cover;
-              }
-              &__Text{
-                &__Name{
-                  text-align: center;
-                  margin: 5px;
+                img{
+                  object-fit: cover;
                 }
-                &__Price{
-                  font-weight: bold;
-                  font-size: 14px;
-                  text-align: center;
+                &__Text{
+                  &__Name{
+                    text-align: center;
+                    margin: 5px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                  }
+                  &__Price{
+                    font-weight: bold;
+                    font-size: 14px;
+                    text-align: center;
+                  }
                 }
               }
             }
           }
-        }
-        .Show{
-          display: block;
+          .Show{
+            display: block;
+          }
         }
       }
     }
