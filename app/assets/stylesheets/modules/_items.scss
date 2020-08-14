@@ -299,6 +299,9 @@
     display: flex;
     position: relative;
     flex-wrap: wrap;
+    &__text{
+      margin: 20px auto;
+    }
     &__content {
       margin: 10px;
       a {
