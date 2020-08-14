@@ -52,9 +52,11 @@
               = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "---", selected: @item.category.parent.parent_id}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: "item[category_id]"}
             .listing-select-wrapper__added#children_wrapper
               .listing-select-wrapper__box
+                %i.fas.fa-chevron-down.item-category__fas
                 = f.collection_select :category_id, @item.category.parent.siblings, :id, :name ,{prompt: "選択してください", selected: @item.category.parent_id}, {class: 'listing-select-wrapper__box--select', id: 'child_category', name: "item[category_id]" }
             .listing-select-wrapper__added#grandchildren_wrapper
               .listing-select-wrapper__box
+                %i.fas.fa-chevron-down.item-category__fas
                 = f.collection_select :category_id,@item.category.siblings, :id, :name ,{prompt: "選択してください", selected: @item.category.id}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category', name: "item[category_id]" }
       .form-group.brand--container
         = f.fields_for :brand do |brand|

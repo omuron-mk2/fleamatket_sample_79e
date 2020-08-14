@@ -7,11 +7,11 @@ $(function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                         <div class='listing-select-wrapper__box'>
+                          <i class='fas fa-chevron-down item-category__fas'></i>
                           <select class="listing-select-wrapper__box--select" id="child_category" name="item[category_id]" >
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>
-                          <i class='fas fa-chevron-down item-category__fas'></i>
                         </div>
                       </div>`;
     $('.item-category__main').append(childSelectHtml);
@@ -20,6 +20,7 @@ $(function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
                               <div class='listing-select-wrapper__box'>
+                                <i class='fas fa-chevron-down item-category__fas'></i>
                                 <select class="listing-select-wrapper__box--select" id="grandchild_category" name="item[category_id]">
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
