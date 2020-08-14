@@ -116,12 +116,11 @@
               flex-wrap: wrap;
               .User_item_box{
                 margin: 15px;
-                transition: color 300ms, border 300ms;
                 &__Content{
                   width: 190px;
                   height: 260px;
                   &:hover{
-                    border: solid 1px #0085C9;
+                    outline: solid 1px #0085C9;
                   }
                 }
                 img{
